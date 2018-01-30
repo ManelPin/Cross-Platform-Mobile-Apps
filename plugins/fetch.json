@@ -1,0 +1,42 @@
+{
+  "com.virtuoworks.cordova-plugin-canvascamera": {
+    "source": {
+      "type": "registry",
+      "id": "https://github.com/VirtuoWorks/CanvasCameraPlugin.git"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-compat": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-compat@^1.2.0"
+    },
+    "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-whitelist": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-whitelist@1"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-android-permissions": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-android-permissions"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-livereload": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-livereload"
+    },
+    "is_top_level": true,
+    "variables": {}
+  }
+}
