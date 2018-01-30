@@ -4,7 +4,7 @@
     <canvas class="raster" #fullsize></canvas>
     <canvas class="raster" #thumbnail></canvas>
     <canvas class="raster" #videoBuffer width="200" height="200"></canvas>
-    <canvas class="raster" #videoResult width="300" height="300"></canvas>
+    <canvas class="raster" #videoResult [ngStyle]="{'height': height*0.25 + 'px', 'width':width*0.35 + 'px', 'border':'2px solid red', 'top':height * 0.010 + 'px', 'left': width * 0.025 + 'px', 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}"></canvas>
     <div class="actions">
         <div class="action play" id="play" (click)="play()">Play</div>
         <div class="action switch" id="switch" (click)="switch()">Switch</div>

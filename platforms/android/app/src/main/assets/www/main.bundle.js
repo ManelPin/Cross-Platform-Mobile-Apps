@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n\n<div class=\"app\">\n    <canvas class=\"raster\" #fullsize></canvas>\n    <canvas class=\"raster\" #thumbnail></canvas>\n    <canvas class=\"raster\" #videoBuffer width=\"200\" height=\"200\"></canvas>\n    <canvas class=\"raster\" #videoResult width=\"300\" height=\"300\"></canvas>\n    <div class=\"actions\">\n        <div class=\"action play\" id=\"play\" (click)=\"play()\">Play</div>\n        <div class=\"action switch\" id=\"switch\" (click)=\"switch()\">Switch</div>\n        <div class=\"action stop\" id=\"stop\" (click)=\"stop()\">Stop</div>\n        <div class=\"action torch\" id=\"torch\">Torch</div>\n \n</div>\n\n\n\n  \n</div>\n     "
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n\n<div class=\"app\">\n    <canvas class=\"raster\" #fullsize></canvas>\n    <canvas class=\"raster\" #thumbnail></canvas>\n    <canvas class=\"raster\" #videoBuffer width=\"200\" height=\"200\"></canvas>\n    <canvas class=\"raster\" #videoResult [ngStyle]=\"{'height': height*0.25 + 'px', 'width':width*0.35 + 'px', 'border':'2px solid red', 'top':height * 0.010 + 'px', 'left': width * 0.025 + 'px', 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}\"></canvas>\n    <div class=\"actions\">\n        <div class=\"action play\" id=\"play\" (click)=\"play()\">Play</div>\n        <div class=\"action switch\" id=\"switch\" (click)=\"switch()\">Switch</div>\n        <div class=\"action stop\" id=\"stop\" (click)=\"stop()\">Stop</div>\n        <div class=\"action torch\" id=\"torch\">Torch</div>\n \n</div>\n\n\n\n  \n</div>\n     "
 
 /***/ }),
 
@@ -63,6 +63,11 @@ var AppComponent = /** @class */ (function () {
         this.title = 'app';
         this.flash = false;
         this.position = 'front';
+        this.colorsR = [];
+        this.colorsB = [];
+        this.colorsG = [];
+    }
+    AppComponent.prototype.ngAfterViewInit = function () {
         window['plugins'].screensize.get(successCallback);
         var _this = this;
         function successCallback(result) {
@@ -70,8 +75,6 @@ var AppComponent = /** @class */ (function () {
             _this.width = result.width;
             _this.height = result.height;
         }
-    }
-    AppComponent.prototype.ngAfterViewInit = function () {
         if (window['plugin'].CanvasCamera) {
             window['plugin'].CanvasCamera.initialize({
                 fullsize: this.fullSize.nativeElement,
@@ -128,13 +131,82 @@ var AppComponent = /** @class */ (function () {
                 thumbnailRatio: 1 / 6,
                 cameraFacing: this.position
             };
+            var _this = this;
             window['plugin'].CanvasCamera.start(options, function (error) {
                 console.log('[CanvasCamera start]', 'error', error);
             }, function (data) {
                 console.log('[CanvasCamera start]', 'data', data);
+                var canvas = _this.videoR.nativeElement;
+                var context = canvas.getContext("2d");
+                var imageObj = new Image();
+                imageObj.onload = function () {
+                    context.drawImage(imageObj, 0, 0);
+                };
+                imageObj.src = data.output.images.fullsize.file;
+                var imageData = context.getImageData(0, 0, 400, 400);
+                var data = imageData.data;
+                var colorsR = [], colorsG = [], colorsB = [], red, green, blue;
+                // iterate over all pixels
+                for (var i = 0, n = data.length; i < n; i += 4) {
+                    var r = data[i];
+                    var g = data[i + 1];
+                    var b = data[i + 2];
+                    var alpha = data[i + 3];
+                    _this.blue = b;
+                    _this.red = r;
+                    _this.green = g;
+                }
+                console.log(r);
+                /*   for (var ij = 0; ij < colorsR.length; ij++) {
+                     red[colorsR[ij]] = (red[colorsR[ij]]|| 0) + 1;
+                     
+            
+                  }
+                  
+        
+                  for (var j = 0; j < colorsG.length; j++) {
+                    green[colorsG[j]] = (green[colorsG[j]] || 0) + 1;
+                 }
+                 //console.log(JSON.stringify(green))
+                 for (var t = 0, k = colorsB.length; t < k; t++) {
+                  blue[colorsB[t]] = (blue[colorsB[t]] || 0) + 1;
+               }
+               _this.blue = _this.generateData(red);
+               _this.red = _this.generateData(red)
+               _this.green = _this.generateData(green) */
             });
         }
     };
+    /* private generateData(data) {
+       var tempArray = [];
+   
+       for (let k in data){
+        if(parseInt(k) > 0){
+            tempArray.push({index: k, value:data[k]})
+        }
+         
+       }
+       //console.log(JSON.stringify(tempArray))
+       var max = _.max( tempArray, function(elti) { return elti.value;  });
+       console.log(JSON.stringify(max))
+        var tArray = [];
+        for(var i = 0; i < tempArray.length; i++){
+           tArray.push(tempArray[i]);
+         
+            
+            
+        }
+        for(var il= 0; il < tArray.length; il++){
+          if(tArray[il].value === max.value){
+             var result = tArray[il].index
+            }
+          }
+       
+              return result;
+             
+           
+        
+    }*/
     AppComponent.prototype.stop = function () {
         window['plugin'].CanvasCamera.stop();
     };
