@@ -1,4 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
+
+
 body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
@@ -27,6 +29,7 @@ canvas.raster {
   top: 0;
   left: 0;
   position: absolute;
+ 
 }
 
 /* Actions */
@@ -35,7 +38,7 @@ div.actions {
   bottom: 0;
   height: 50px;
   width: 200px;
-  position:absolute;
+  position: relative;
 }
 div.action {
   width:50px;

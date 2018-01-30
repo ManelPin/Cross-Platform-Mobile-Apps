@@ -1,20 +1,51 @@
-<!--The content below is only a placeholder and can be replaced.-->
 
-<div class="app">
-    <canvas class="raster" #fullsize></canvas>
-    <canvas class="raster" #thumbnail></canvas>
-    <canvas class="raster" #videoBuffer width="200" height="200"></canvas>
-    <canvas class="raster" #videoResult [ngStyle]="{'height': height*0.25 + 'px', 'width':width*0.35 + 'px', 'border':'2px solid red', 'top':height * 0.010 + 'px', 'left': width * 0.025 + 'px', 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}"></canvas>
-    <div class="actions">
-        <div class="action play" id="play" (click)="play()">Play</div>
-        <div class="action switch" id="switch" (click)="switch()">Switch</div>
-        <div class="action stop" id="stop" (click)="stop()">Stop</div>
-        <div class="action torch" id="torch">Torch</div>
- 
-</div>
+
+<!--The content below is only a placeholder and can be replaced.-->
+<section class="section">
+        <div class="container">
+<div class="controls">
+        <table style="width:100%">
+          <tr style="background-color: rgb(255,0,0)">
+            <th>R:</th>
+            <td style="min-width:24px;">{{red}}</td>
+          </tr>
+          <tr style="background-color: rgb(0,255,0)">
+            <th>G:</th>
+            <td style="min-width:24px;">{{green}}</td>
+          </tr>
+          <tr style="background-color: rgb(0,0,255)">
+            <th>B:</th>
+            <td style="min-width:24px;">{{blue}}</td>
+          </tr>
+        </table>
+      </div>
+<div class="app" >
+     
+            
+    <canvas class="raster" #fullsize [style.width.px]="width" [style.height.px]="height"></canvas>
+
+    
+    
+    <canvas class="raster" #videoResult  [style.width.px]="width" [style.height.px]="height" style="visibility:hidden;"></canvas>
+    <canvas class="raster" #thumbnail  [style.width.px]="width" [style.height.px]="height"></canvas>
+    
+    <div  [ngStyle]="{'height': height*0.25 + 'px', 'width':width*0.15 + 'px', 'border':'2px solid red', 'top':height * 0.010 + 'px', 'left': width * 0.025 + 'px', 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}"></div>
+
 
 
 
   
 </div>
-     
+        </div>
+</section>
+<footer class="footer">
+        <div class="container">
+          <div class="content has-text-centered">
+                <a class="button is-primary" id="play" (click)="play()" [ngStyle]="{ 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}">Play</a>
+                <a class="button is-primary" id="switch" (click)="switch()">Switch</a>
+                    <a class="button is-primary" id="stop" (click)="stop()">Stop</a>
+                        <a class="button is-primary" id="torch">Torch</a>
+ 
+          </div>
+        </div>
+      </footer>

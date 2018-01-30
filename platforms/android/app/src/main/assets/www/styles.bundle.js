@@ -1,12 +1,12 @@
 webpackJsonp(["styles"],{
 
-/***/ "../../../../../src/styles.css":
+/***/ "../../../../../src/styles.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__("../../../../css-loader/index.js?{\"sourceMap\":false,\"import\":false}!../../../../postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"sourceMap\":false}!../../../../../src/styles.css");
+var content = __webpack_require__("../../../../css-loader/index.js?{\"sourceMap\":false,\"import\":false}!../../../../postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"sourceMap\":false}!../../../../sass-loader/lib/loader.js?{\"sourceMap\":false,\"precision\":8,\"includePaths\":[]}!../../../../../src/styles.scss");
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
 var update = __webpack_require__("../../../../style-loader/addStyles.js")(content, {});
@@ -15,8 +15,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../node_modules/css-loader/index.js??ref--7-1!../node_modules/postcss-loader/lib/index.js??postcss!./styles.css", function() {
-			var newContent = require("!!../node_modules/css-loader/index.js??ref--7-1!../node_modules/postcss-loader/lib/index.js??postcss!./styles.css");
+		module.hot.accept("!!../node_modules/css-loader/index.js??ref--8-1!../node_modules/postcss-loader/lib/index.js??postcss!../node_modules/sass-loader/lib/loader.js??ref--8-3!./styles.scss", function() {
+			var newContent = require("!!../node_modules/css-loader/index.js??ref--8-1!../node_modules/postcss-loader/lib/index.js??postcss!../node_modules/sass-loader/lib/loader.js??ref--8-3!./styles.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});
@@ -27,7 +27,7 @@ if(false) {
 
 /***/ }),
 
-/***/ "../../../../css-loader/index.js?{\"sourceMap\":false,\"import\":false}!../../../../postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"sourceMap\":false}!../../../../../src/styles.css":
+/***/ "../../../../css-loader/index.js?{\"sourceMap\":false,\"import\":false}!../../../../postcss-loader/lib/index.js?{\"ident\":\"postcss\",\"sourceMap\":false}!../../../../sass-loader/lib/loader.js?{\"sourceMap\":false,\"precision\":8,\"includePaths\":[]}!../../../../../src/styles.scss":
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
@@ -35,7 +35,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\nbody {\n    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */\n    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */\n    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */\n    height:100%;\n    margin:0px;\n    padding:0px;\n    width:100%;\n    background-color: transparent !important;\n}\n/* Portrait layout (default) */\n.app {\n    background-color: blue;\n}\n/* Landscape layout (with min-width) */\n@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {\n    .app {\n        background-color: red;\n    }\n}\n/* Canvas */\ncanvas.raster {\n  top: 0;\n  left: 0;\n  position: absolute;\n}\n/* Actions */\ndiv.actions {\n  right: 0;\n  bottom: 0;\n  height: 50px;\n  width: 200px;\n  position:absolute;\n}\ndiv.action {\n  width:50px;\n  float:left;\n  height:50px;\n  line-height:50px;\n  font-size: 0.8em;\n  font-weight: bold;\n  text-align:center;\n  position:relative;\n}\n/* Play action */\ndiv.play {\n  background-color: lightgreen;\n}\ndiv.play:hover {\n  background-color: green;\n}\n/* Switch action */\ndiv.switch {\n  background-color: lightblue;\n}\ndiv.switch:hover {\n  background-color: blue;\n}\n/* Stop action */\ndiv.stop {\n  background-color: lightcoral;\n}\ndiv.stop:hover {\n  background-color: red;\n}\n/* Torch action */\ndiv.torch {\n  background-color: lightyellow;\n}\ndiv.torch:hover {\n  background-color: yellow;\n}\n", ""]);
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\nbody {\n  -webkit-touch-callout: none;\n  /* prevent callout to copy image, etc when tap to hold */\n  -webkit-text-size-adjust: none;\n  /* prevent webkit from resizing text to fit */\n  -webkit-user-select: none;\n  /* prevent copy paste, to allow, change 'none' to 'text' */\n  height: 100%;\n  margin: 0px;\n  padding: 0px;\n  width: 100%;\n  background-color: transparent !important; }\n/* Portrait layout (default) */\n.app {\n  background-color: blue; }\n/* Landscape layout (with min-width) */\n@media screen and (min-aspect-ratio: 1 / 1) and (min-width: 400px) {\n  .app {\n    background-color: red; } }\n/* Canvas */\ncanvas.raster {\n  top: 0;\n  left: 0;\n  position: absolute; }\n/* Actions */\ndiv.actions {\n  right: 0;\n  bottom: 0;\n  height: 50px;\n  width: 200px;\n  position: relative; }\ndiv.action {\n  width: 50px;\n  float: left;\n  height: 50px;\n  line-height: 50px;\n  font-size: 0.8em;\n  font-weight: bold;\n  text-align: center;\n  position: relative; }\n/* Play action */\ndiv.play {\n  background-color: lightgreen; }\ndiv.play:hover {\n  background-color: green; }\n/* Switch action */\ndiv.switch {\n  background-color: lightblue; }\ndiv.switch:hover {\n  background-color: blue; }\n/* Stop action */\ndiv.stop {\n  background-color: lightcoral; }\ndiv.stop:hover {\n  background-color: red; }\n/* Torch action */\ndiv.torch {\n  background-color: lightyellow; }\ndiv.torch:hover {\n  background-color: yellow; }\n", ""]);
 
 // exports
 
@@ -381,7 +381,7 @@ function updateLink(linkElement, obj) {
 /***/ 2:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("../../../../../src/styles.css");
+module.exports = __webpack_require__("../../../../../src/styles.scss");
 
 
 /***/ })

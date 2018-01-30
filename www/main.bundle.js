@@ -25,7 +25,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "\r\n.img-wrap{\r\n    height: 500px;\r\n    width: 500px;\r\n    position: absolute;\r\n    top: 50%; left: 50%;\r\n    text-align: center;\r\n    -webkit-transform: translateY(-50%) translateX(-50%);\r\n    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);\r\n            box-shadow: 0 1px 3px rgba(0,0,0,0.2);\r\n  }\r\n\r\n  .img-wrap img{\r\n    height: 100%;\r\n  }\r\n\r\n  .controls {\r\n    float: left;\r\n    display: -webkit-box !important;\r\n}\r\n\r\n  .controls > div {\r\n   border: 0px solid grey;\r\n    margin-bottom: 5px;\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    min-width: 30px;\r\n    width: 7rem;\r\n    display: inline-block; \r\n    \r\n}\r\n\r\n  .controls {\r\n    top:0;\r\n    left: 0;\r\n    color:white;\r\n    position:absolute;\r\n    z-index: 9999;\r\n}\r\n\r\n  .controls > div span {\r\n    background-color: #ffffff;\r\n    border: 1px solid #ffffff;\r\n    color: #666;\r\n    float: left;\r\n    font-size: 14px;\r\n    height: 40px;\r\n    width: 120px;\r\n    margin-left: 6px;\r\n    text-align: left;\r\n    text-transform: uppercase;\r\n    \r\n}\r\n\r\n  .hidden{\r\n    background-color: rgba(255,0, 0, 0.4)\r\n}\r\n\r\n  .item-block {\r\n    min-height: 2.2em !important;\r\n}\r\n\r\n  .toolbar-title {\r\n    display: block;\r\n    overflow: hidden;\r\n    width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    margin-right: auto;\r\n    margin-left: 45%;\r\n}\r\n\r\n  .centered {\r\n    position: fixed;\r\n    \r\n  }\r\n\r\n  li {\r\n    -webkit-box-flex: 1;\r\n        -ms-flex: 1;\r\n            flex: 1;\r\n    padding: 0.5em;\r\n    text-align: center;\r\n}\r\n\r\n  p {\r\n    font-size: 1.3em;\r\n    font-weight: 700;\r\n    margin: 0;\r\n}\r\n\r\n  section {\r\n    background-color: whitesmoke;\r\n    height: 400px;\r\n    max-width: 100%;\r\n    overflow: hidden;\r\n    padding: 20px;\r\n    width: 800px;\r\n}\r\n\r\n  small {\r\n    font-weight: 500;\r\n}\r\n\r\n  ul {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: row;\r\n            flex-direction: row;\r\n    list-style: none;\r\n    padding: 0;\r\n}", ""]);
 
 // exports
 
@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n\n<div class=\"app\">\n    <canvas class=\"raster\" #fullsize></canvas>\n    <canvas class=\"raster\" #thumbnail></canvas>\n    <canvas class=\"raster\" #videoBuffer width=\"200\" height=\"200\"></canvas>\n    <canvas class=\"raster\" #videoResult [ngStyle]=\"{'height': height*0.25 + 'px', 'width':width*0.35 + 'px', 'border':'2px solid red', 'top':height * 0.010 + 'px', 'left': width * 0.025 + 'px', 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}\"></canvas>\n    <div class=\"actions\">\n        <div class=\"action play\" id=\"play\" (click)=\"play()\">Play</div>\n        <div class=\"action switch\" id=\"switch\" (click)=\"switch()\">Switch</div>\n        <div class=\"action stop\" id=\"stop\" (click)=\"stop()\">Stop</div>\n        <div class=\"action torch\" id=\"torch\">Torch</div>\n \n</div>\n\n\n\n  \n</div>\n     "
+module.exports = "\n\n<!--The content below is only a placeholder and can be replaced.-->\n<section class=\"section\">\n        <div class=\"container\">\n<div class=\"controls\">\n        <table style=\"width:100%\">\n          <tr style=\"background-color: rgb(255,0,0)\">\n            <th>R:</th>\n            <td style=\"min-width:24px;\">{{red}}</td>\n          </tr>\n          <tr style=\"background-color: rgb(0,255,0)\">\n            <th>G:</th>\n            <td style=\"min-width:24px;\">{{green}}</td>\n          </tr>\n          <tr style=\"background-color: rgb(0,0,255)\">\n            <th>B:</th>\n            <td style=\"min-width:24px;\">{{blue}}</td>\n          </tr>\n        </table>\n      </div>\n<div class=\"app\" >\n     \n            \n    <canvas class=\"raster\" #fullsize [style.width.px]=\"width\" [style.height.px]=\"height\"></canvas>\n\n    \n    \n    <canvas class=\"raster\" #videoResult  [style.width.px]=\"width\" [style.height.px]=\"height\" style=\"visibility:hidden;\"></canvas>\n    <canvas class=\"raster\" #thumbnail  [style.width.px]=\"width\" [style.height.px]=\"height\"></canvas>\n    \n    <div  [ngStyle]=\"{'height': height*0.25 + 'px', 'width':width*0.15 + 'px', 'border':'2px solid red', 'top':height * 0.010 + 'px', 'left': width * 0.025 + 'px', 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}\"></div>\n\n\n\n\n  \n</div>\n        </div>\n</section>\n<footer class=\"footer\">\n        <div class=\"container\">\n          <div class=\"content has-text-centered\">\n                <a class=\"button is-primary\" id=\"play\" (click)=\"play()\" [ngStyle]=\"{ 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}\">Play</a>\n                <a class=\"button is-primary\" id=\"switch\" (click)=\"switch()\">Switch</a>\n                    <a class=\"button is-primary\" id=\"stop\" (click)=\"stop()\">Stop</a>\n                        <a class=\"button is-primary\" id=\"torch\">Torch</a>\n \n          </div>\n        </div>\n      </footer>"
 
 /***/ }),
 
@@ -62,68 +62,36 @@ var AppComponent = /** @class */ (function () {
     function AppComponent() {
         this.title = 'app';
         this.flash = false;
-        this.position = 'front';
-        this.colorsR = [];
-        this.colorsB = [];
-        this.colorsG = [];
+        this.position = 'back';
+        this.width = window.screen.width * window.devicePixelRatio;
+        this.height = window.screen.height * window.devicePixelRatio;
+        this.red = 0;
+        this.green = 255;
+        this.blue = 0;
     }
     AppComponent.prototype.ngAfterViewInit = function () {
-        window['plugins'].screensize.get(successCallback);
-        var _this = this;
-        function successCallback(result) {
-            console.log(result);
-            _this.width = result.width;
-            _this.height = result.height;
-        }
         if (window['plugin'].CanvasCamera) {
             window['plugin'].CanvasCamera.initialize({
                 fullsize: this.fullSize.nativeElement,
                 thumbnail: this.thumbnail.nativeElement
             });
-            var options = {
-                width: 352, height: 288,
-                canvas: {
-                    width: 640,
-                    height: 480
-                },
-                capture: {
-                    width: 640,
-                    height: 480
-                },
-                use: 'file',
-                fps: 30,
-                flashMode: false,
-                thumbnailRatio: 1 / 6,
-                cameraPosition: 'back',
-                onAfterDraw: function (frame) {
-                    // do something with each frame
-                    console.log(frame);
-                }
-            };
-            window['plugin'].CanvasCamera.start(options);
         }
+        console.log(this.width);
     };
     AppComponent.prototype.play = function () {
-        var permissions = cordova.plugins.permissions;
-        permissions.requestPermission(permissions.CAMERA, success, error);
-        function error() {
-            console.warn('Camera permission is not turned on');
-        }
-        function success(status) {
-            if (!status.hasPermission)
-                error();
-        }
+        /*  var permissions = cordova.plugins.permissions;
+          permissions.requestPermission(permissions.CAMERA, success, error);
+       
+      function error() {
+        console.warn('Camera permission is not turned on');
+      }
+       
+      function success( status ) {
+        if( !status.hasPermission ) error();
+      }*/
         console.log('play');
         if (window['plugin'].CanvasCamera) {
             var options = {
-                canvas: {
-                    width: 640,
-                    height: 480
-                },
-                capture: {
-                    width: 640,
-                    height: 480
-                },
                 use: 'file',
                 fps: 30,
                 flashMode: this.flash,
@@ -131,82 +99,40 @@ var AppComponent = /** @class */ (function () {
                 thumbnailRatio: 1 / 6,
                 cameraFacing: this.position
             };
+            var canvas = this.fullSize.nativeElement;
+            var context = canvas.getContext("2d");
             var _this = this;
             window['plugin'].CanvasCamera.start(options, function (error) {
                 console.log('[CanvasCamera start]', 'error', error);
             }, function (data) {
                 console.log('[CanvasCamera start]', 'data', data);
-                var canvas = _this.videoR.nativeElement;
-                var context = canvas.getContext("2d");
                 var imageObj = new Image();
                 imageObj.onload = function () {
                     context.drawImage(imageObj, 0, 0);
                 };
                 imageObj.src = data.output.images.fullsize.file;
-                var imageData = context.getImageData(0, 0, 400, 400);
-                var data = imageData.data;
-                var colorsR = [], colorsG = [], colorsB = [], red, green, blue;
-                // iterate over all pixels
-                for (var i = 0, n = data.length; i < n; i += 4) {
-                    var r = data[i];
-                    var g = data[i + 1];
-                    var b = data[i + 2];
-                    var alpha = data[i + 3];
-                    _this.blue = b;
-                    _this.red = r;
-                    _this.green = g;
-                }
-                console.log(r);
-                /*   for (var ij = 0; ij < colorsR.length; ij++) {
-                     red[colorsR[ij]] = (red[colorsR[ij]]|| 0) + 1;
-                     
-            
-                  }
-                  
-        
-                  for (var j = 0; j < colorsG.length; j++) {
-                    green[colorsG[j]] = (green[colorsG[j]] || 0) + 1;
-                 }
-                 //console.log(JSON.stringify(green))
-                 for (var t = 0, k = colorsB.length; t < k; t++) {
-                  blue[colorsB[t]] = (blue[colorsB[t]] || 0) + 1;
-               }
-               _this.blue = _this.generateData(red);
-               _this.red = _this.generateData(red)
-               _this.green = _this.generateData(green) */
             });
+            var imageData = context.getImageData(0, 0, _this.width, _this.height);
+            context.putImageData(imageData, 0, 0);
+            var data = imageData.data;
+            var result = _this.generateData(data);
+            console.log(result);
         }
     };
-    /* private generateData(data) {
-       var tempArray = [];
-   
-       for (let k in data){
-        if(parseInt(k) > 0){
-            tempArray.push({index: k, value:data[k]})
+    AppComponent.prototype.generateData = function (data) {
+        for (var i = 0, n = data.length; i < n; i += 4) {
+            this.red = data[i];
+            this.green = data[i + 1];
+            this.blue = data[i + 2];
+            var alpha = data[i + 3];
+            var JSONS = {
+                red: this.red,
+                green: this.green,
+                blue: this.blue
+            };
         }
-         
-       }
-       //console.log(JSON.stringify(tempArray))
-       var max = _.max( tempArray, function(elti) { return elti.value;  });
-       console.log(JSON.stringify(max))
-        var tArray = [];
-        for(var i = 0; i < tempArray.length; i++){
-           tArray.push(tempArray[i]);
-         
-            
-            
-        }
-        for(var il= 0; il < tArray.length; il++){
-          if(tArray[il].value === max.value){
-             var result = tArray[il].index
-            }
-          }
-       
-              return result;
-             
-           
-        
-    }*/
+        return JSONS;
+    };
     AppComponent.prototype.stop = function () {
         window['plugin'].CanvasCamera.stop();
     };
@@ -222,21 +148,17 @@ var AppComponent = /** @class */ (function () {
         }
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* ViewChild */])('fullsize'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["r" /* ElementRef */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */])('fullsize'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ElementRef */])
     ], AppComponent.prototype, "fullSize", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* ViewChild */])('thumbnail'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["r" /* ElementRef */])
-    ], AppComponent.prototype, "thumbnail", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* ViewChild */])('videoBuffer'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["r" /* ElementRef */])
-    ], AppComponent.prototype, "video", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* ViewChild */])('videoResult'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["r" /* ElementRef */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */])('videoResult'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ElementRef */])
     ], AppComponent.prototype, "videoR", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */])('thumbnail'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ElementRef */])
+    ], AppComponent.prototype, "thumbnail", void 0);
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-root',
@@ -259,7 +181,8 @@ var AppComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng_wizi_bulma__ = __webpack_require__("../../../../ng-wizi-bulma/esm5/ng-wizi-bulma.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -269,19 +192,21 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["E" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["G" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]
+                __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */]
+                __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
+                __WEBPACK_IMPORTED_MODULE_2_ng_wizi_bulma__["a" /* NwbModule */]
             ],
             providers: [],
-            bootstrap: [__WEBPACK_IMPORTED_MODULE_2__app_component__["a" /* AppComponent */]]
+            bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
@@ -321,7 +246,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });
