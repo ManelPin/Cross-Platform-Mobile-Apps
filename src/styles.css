@@ -7,17 +7,18 @@ body {
     margin:0px;
     padding:0px;
     width:100%;
+    background-color: transparent !important;
 }
 
 /* Portrait layout (default) */
 .app {
-
+    background-color: blue;
 }
 
 /* Landscape layout (with min-width) */
 @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
     .app {
-
+        background-color: red;
     }
 }
 

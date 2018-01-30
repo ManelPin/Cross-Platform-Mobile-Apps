@@ -10,12 +10,20 @@ export class AppComponent implements AfterViewInit {
   title = 'app';
   flash = false;
   position = 'front';
+  height;
+  width;
   @ViewChild('fullsize') fullSize:ElementRef;
   @ViewChild('thumbnail') thumbnail:ElementRef;
   @ViewChild('videoBuffer') video:ElementRef;
   @ViewChild('videoResult') videoR:ElementRef;
   constructor(){
-     
+    window['plugins'].screensize.get(successCallback);
+    var _this = this;
+    function successCallback(result) {
+      console.log(result);
+      _this.width = result.width;
+      _this.height = result.height;
+    }
   }
 ngAfterViewInit(){
   if (window['plugin'].CanvasCamera) {
@@ -23,19 +31,30 @@ ngAfterViewInit(){
           fullsize:this.fullSize.nativeElement,
           thumbnail:this.thumbnail.nativeElement
     });
-    var ctx1 = this.video.nativeElement.getContext("2d")
-    ctx1.drawImage(this.thumbnail, 0, 0, 400,400);
-    let frame = ctx1.getImageData(0, 0, 400, 400);
-    let l = frame.data.length / 4;
-    var ctx2 = this.videoR.nativeElement.getContext("2d")
-    for (let i = 0; i < l; i++) {
-      let r = frame.data[i * 4 + 0];
-      let g = frame.data[i * 4 + 1];
-      let b = frame.data[i * 4 + 2];
-      if (g > 100 && r > 100 && b < 43)
-        frame.data[i * 4 + 3] = 0;
-    }
-    ctx2.putImageData(frame, 0, 0);
+    let options = {
+      width: 352, height: 288,
+      canvas: {
+        width: 640,
+        height: 480
+      },
+      capture: {
+        width: 640,
+        height: 480
+      },
+      use: 'file',
+      fps: 30,
+
+    flashMode: false,
+    thumbnailRatio: 1/6,
+      cameraPosition: 'back',
+      onAfterDraw: function(frame) {
+        // do something with each frame
+        console.log(frame)
+      }
+  };
+   
+  window['plugin'].CanvasCamera.start(options);
+  
    
   }
   

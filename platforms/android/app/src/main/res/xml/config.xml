@@ -11,6 +11,9 @@
     <feature name="Permissions">
         <param name="android-package" value="com.android.plugins.Permissions" />
     </feature>
+    <feature name="ScreenSize">
+        <param name="android-package" value="com.pbakondy.ScreenSize" />
+    </feature>
     <name>HelloCordova</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.

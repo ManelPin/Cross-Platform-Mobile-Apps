@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n\n<div class=\"app\">\n    <canvas class=\"raster\" #fullsize width=\"400\" height=\"800\"></canvas>\n    <canvas class=\"raster\" #thumbnail width=\"400\" height=\"400\"></canvas>\n    <canvas class=\"raster\" #videoBuffer width=\"200\" height=\"200\"></canvas>\n    <canvas class=\"raster\" #videoResult width=\"300\" height=\"300\"></canvas>\n    <div class=\"actions\">\n        <div class=\"action play\" id=\"play\" (click)=\"play()\">Play</div>\n        <div class=\"action switch\" id=\"switch\" (click)=\"switch()\">Switch</div>\n        <div class=\"action stop\" id=\"stop\" (click)=\"stop()\">Stop</div>\n        <div class=\"action torch\" id=\"torch\">Torch</div>\n \n</div>\n\n\n\n  \n</div>\n     "
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n\n<div class=\"app\">\n    <canvas class=\"raster\" #fullsize></canvas>\n    <canvas class=\"raster\" #thumbnail></canvas>\n    <canvas class=\"raster\" #videoBuffer width=\"200\" height=\"200\"></canvas>\n    <canvas class=\"raster\" #videoResult width=\"300\" height=\"300\"></canvas>\n    <div class=\"actions\">\n        <div class=\"action play\" id=\"play\" (click)=\"play()\">Play</div>\n        <div class=\"action switch\" id=\"switch\" (click)=\"switch()\">Switch</div>\n        <div class=\"action stop\" id=\"stop\" (click)=\"stop()\">Stop</div>\n        <div class=\"action torch\" id=\"torch\">Torch</div>\n \n</div>\n\n\n\n  \n</div>\n     "
 
 /***/ }),
 
@@ -63,6 +63,13 @@ var AppComponent = /** @class */ (function () {
         this.title = 'app';
         this.flash = false;
         this.position = 'front';
+        window['plugins'].screensize.get(successCallback);
+        var _this = this;
+        function successCallback(result) {
+            console.log(result);
+            _this.width = result.width;
+            _this.height = result.height;
+        }
     }
     AppComponent.prototype.ngAfterViewInit = function () {
         if (window['plugin'].CanvasCamera) {
@@ -70,6 +77,27 @@ var AppComponent = /** @class */ (function () {
                 fullsize: this.fullSize.nativeElement,
                 thumbnail: this.thumbnail.nativeElement
             });
+            var options = {
+                width: 352, height: 288,
+                canvas: {
+                    width: 640,
+                    height: 480
+                },
+                capture: {
+                    width: 640,
+                    height: 480
+                },
+                use: 'file',
+                fps: 30,
+                flashMode: false,
+                thumbnailRatio: 1 / 6,
+                cameraPosition: 'back',
+                onAfterDraw: function (frame) {
+                    // do something with each frame
+                    console.log(frame);
+                }
+            };
+            window['plugin'].CanvasCamera.start(options);
         }
     };
     AppComponent.prototype.play = function () {
@@ -129,6 +157,14 @@ var AppComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* ViewChild */])('thumbnail'),
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["r" /* ElementRef */])
     ], AppComponent.prototype, "thumbnail", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* ViewChild */])('videoBuffer'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["r" /* ElementRef */])
+    ], AppComponent.prototype, "video", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_1" /* ViewChild */])('videoResult'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["r" /* ElementRef */])
+    ], AppComponent.prototype, "videoR", void 0);
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'app-root',

@@ -16,6 +16,14 @@ module.exports = [
     "clobbers": [
       "cordova.plugins.permissions"
     ]
+  },
+  {
+    "id": "cordova-plugin-screensize.screensize",
+    "file": "plugins/cordova-plugin-screensize/www/screensize.js",
+    "pluginId": "cordova-plugin-screensize",
+    "clobbers": [
+      "window.plugins.screensize"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -23,7 +31,8 @@ module.exports.metadata =
 {
   "com.virtuoworks.cordova-plugin-canvascamera": "1.1.5",
   "cordova-plugin-whitelist": "1.3.3",
-  "cordova-plugin-android-permissions": "1.0.0"
+  "cordova-plugin-android-permissions": "1.0.0",
+  "cordova-plugin-screensize": "1.3.1"
 };
 // BOTTOM OF METADATA
 });
