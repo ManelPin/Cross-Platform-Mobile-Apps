@@ -8,20 +8,29 @@ declare var cordova:any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit {
-  title = 'app';
+  title = '#444';
   flash = false;
   position = 'back';
   width=window.screen.width * window.devicePixelRatio;
-  height= window.screen.height * window.devicePixelRatio;
+  height;
   red:number=0;
-  green:number=255;
+  green:number=0;
   blue:number=0;
   context:any;
   @ViewChild('fullsize') fullSize:ElementRef;
   @ViewChild('videoResult') videoR:ElementRef;
   @ViewChild('thumbnail') thumbnail:ElementRef;
   constructor(){
-  
+    window['plugins'].screensize.get(successCallback, errorCallback);
+
+
+    function successCallback(result) {
+      console.log(result);
+      this.height = result.height + 'px';
+    }
+    function errorCallback(err){
+     console.log(err) ;
+    }
      
   }
 ngAfterViewInit(){
@@ -30,7 +39,7 @@ ngAfterViewInit(){
           fullsize: this.fullSize.nativeElement
     });
   }
-  console.log(this.width)
+ 
 }
   public play():void{
   /*  var permissions = cordova.plugins.permissions;
@@ -144,5 +153,16 @@ function success( status ) {
           });
       }
   
+  }
+  public torch(){
+    console.log('switch');
+      if (window['plugin'].CanvasCamera) {
+        this.flash = (this.flash) ? false : true;
+        window['plugin'].CanvasCameras.flashMode(this.flash, function(error) {
+          console.log('[CanvasCamera flashMode]', 'error', error);
+        }, function(data) {
+          console.log('[CanvasCamera flashMode]', 'data', data);
+        });
+       }
   }
 }

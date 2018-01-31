@@ -1,82 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-
-body {
-    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
-    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
-    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    height:100%;
-    margin:0px;
-    padding:0px;
-    width:100%;
-    background-color: transparent !important;
+body { 
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
 }
 
-/* Portrait layout (default) */
-.app {
-    background-color: blue;
+.basic-container {
+  padding: 5px;
 }
 
-/* Landscape layout (with min-width) */
-@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
-    .app {
-        background-color: red;
-    }
-}
-
-/* Canvas */
-canvas.raster {
-  top: 0;
-  left: 0;
-  position: absolute;
- 
-}
-
-/* Actions */
-div.actions {
-  right: 0;
-  bottom: 0;
-  height: 50px;
-  width: 200px;
-  position: relative;
-}
-div.action {
-  width:50px;
-  float:left;
-  height:50px;
-  line-height:50px;
-  font-size: 0.8em;
-  font-weight: bold;
-  text-align:center;
-  position:relative;
-}
-
-/* Play action */
-div.play {
-  background-color: lightgreen;
-}
-div.play:hover {
-  background-color: green;
-}
-/* Switch action */
-div.switch {
-  background-color: lightblue;
-}
-div.switch:hover {
-  background-color: blue;
-}
-/* Stop action */
-div.stop {
-  background-color: lightcoral;
-}
-div.stop:hover {
-  background-color: red;
-}
-
-/* Torch action */
-div.torch {
-  background-color: lightyellow;
-}
-div.torch:hover {
-  background-color: yellow;
+.version-info {
+  font-size: 8pt;
+  float: right;
 }

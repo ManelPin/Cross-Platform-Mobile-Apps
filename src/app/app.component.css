@@ -1,17 +1,5 @@
 
-.img-wrap{
-    height: 500px;
-    width: 500px;
-    position: absolute;
-    top: 50%; left: 50%;
-    text-align: center;
-    -webkit-transform: translateY(-50%) translateX(-50%);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  }
 
-  .img-wrap img{
-    height: 100%;
-  }
   .controls {
     float: left;
     display: -webkit-box !important;
@@ -27,8 +15,8 @@
     
 }
 .controls {
-    top:0;
-    left: 0;
+    bottom:0;
+    right: 0;
     color:white;
     position:absolute;
     z-index: 9999;

@@ -25,7 +25,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\r\n.img-wrap{\r\n    height: 500px;\r\n    width: 500px;\r\n    position: absolute;\r\n    top: 50%; left: 50%;\r\n    text-align: center;\r\n    -webkit-transform: translateY(-50%) translateX(-50%);\r\n    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.2);\r\n            box-shadow: 0 1px 3px rgba(0,0,0,0.2);\r\n  }\r\n\r\n  .img-wrap img{\r\n    height: 100%;\r\n  }\r\n\r\n  .controls {\r\n    float: left;\r\n    display: -webkit-box !important;\r\n}\r\n\r\n  .controls > div {\r\n   border: 0px solid grey;\r\n    margin-bottom: 5px;\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    min-width: 30px;\r\n    width: 7rem;\r\n    display: inline-block; \r\n    \r\n}\r\n\r\n  .controls {\r\n    top:0;\r\n    left: 0;\r\n    color:white;\r\n    position:absolute;\r\n    z-index: 9999;\r\n}\r\n\r\n  .controls > div span {\r\n    background-color: #ffffff;\r\n    border: 1px solid #ffffff;\r\n    color: #666;\r\n    float: left;\r\n    font-size: 14px;\r\n    height: 40px;\r\n    width: 120px;\r\n    margin-left: 6px;\r\n    text-align: left;\r\n    text-transform: uppercase;\r\n    \r\n}\r\n\r\n  .hidden{\r\n    background-color: rgba(255,0, 0, 0.4)\r\n}\r\n\r\n  .item-block {\r\n    min-height: 2.2em !important;\r\n}\r\n\r\n  .toolbar-title {\r\n    display: block;\r\n    overflow: hidden;\r\n    width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    margin-right: auto;\r\n    margin-left: 45%;\r\n}\r\n\r\n  .centered {\r\n    position: fixed;\r\n    \r\n  }\r\n\r\n  li {\r\n    -webkit-box-flex: 1;\r\n        -ms-flex: 1;\r\n            flex: 1;\r\n    padding: 0.5em;\r\n    text-align: center;\r\n}\r\n\r\n  p {\r\n    font-size: 1.3em;\r\n    font-weight: 700;\r\n    margin: 0;\r\n}\r\n\r\n  section {\r\n    background-color: whitesmoke;\r\n    height: 400px;\r\n    max-width: 100%;\r\n    overflow: hidden;\r\n    padding: 20px;\r\n    width: 800px;\r\n}\r\n\r\n  small {\r\n    font-weight: 500;\r\n}\r\n\r\n  ul {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: row;\r\n            flex-direction: row;\r\n    list-style: none;\r\n    padding: 0;\r\n}", ""]);
+exports.push([module.i, "\r\n\r\n  .controls {\r\n    float: left;\r\n    display: -webkit-box !important;\r\n}\r\n.controls > div {\r\n   border: 0px solid grey;\r\n    margin-bottom: 5px;\r\n    overflow: hidden;\r\n    padding: 5px;\r\n    min-width: 30px;\r\n    width: 7rem;\r\n    display: inline-block; \r\n    \r\n}\r\n.controls {\r\n    bottom:0;\r\n    right: 0;\r\n    color:white;\r\n    position:absolute;\r\n    z-index: 9999;\r\n}\r\n.controls > div span {\r\n    background-color: #ffffff;\r\n    border: 1px solid #ffffff;\r\n    color: #666;\r\n    float: left;\r\n    font-size: 14px;\r\n    height: 40px;\r\n    width: 120px;\r\n    margin-left: 6px;\r\n    text-align: left;\r\n    text-transform: uppercase;\r\n    \r\n}\r\n.hidden{\r\n    background-color: rgba(255,0, 0, 0.4)\r\n}\r\n.item-block {\r\n    min-height: 2.2em !important;\r\n}\r\n.toolbar-title {\r\n    display: block;\r\n    overflow: hidden;\r\n    width: 100%;\r\n    text-overflow: ellipsis;\r\n    white-space: nowrap;\r\n    margin-right: auto;\r\n    margin-left: 45%;\r\n}\r\n.centered {\r\n    position: fixed;\r\n    \r\n  }\r\nli {\r\n    -webkit-box-flex: 1;\r\n        -ms-flex: 1;\r\n            flex: 1;\r\n    padding: 0.5em;\r\n    text-align: center;\r\n}\r\np {\r\n    font-size: 1.3em;\r\n    font-weight: 700;\r\n    margin: 0;\r\n}\r\nsection {\r\n    background-color: whitesmoke;\r\n    height: 400px;\r\n    max-width: 100%;\r\n    overflow: hidden;\r\n    padding: 20px;\r\n    width: 800px;\r\n}\r\nsmall {\r\n    font-weight: 500;\r\n}\r\nul {\r\n    display: -webkit-box;\r\n    display: -ms-flexbox;\r\n    display: flex;\r\n    -webkit-box-orient: horizontal;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: row;\r\n            flex-direction: row;\r\n    list-style: none;\r\n    padding: 0;\r\n}", ""]);
 
 // exports
 
@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<!--The content below is only a placeholder and can be replaced.-->\n<section class=\"section\">\n        <div class=\"container\">\n<div class=\"controls\">\n        <table style=\"width:100%\">\n          <tr style=\"background-color: rgb(255,0,0)\">\n            <th>R:</th>\n            <td style=\"min-width:24px;\">{{red}}</td>\n          </tr>\n          <tr style=\"background-color: rgb(0,255,0)\">\n            <th>G:</th>\n            <td style=\"min-width:24px;\">{{green}}</td>\n          </tr>\n          <tr style=\"background-color: rgb(0,0,255)\">\n            <th>B:</th>\n            <td style=\"min-width:24px;\">{{blue}}</td>\n          </tr>\n        </table>\n      </div>\n<div class=\"app\" >\n     \n            \n    <canvas class=\"raster1s\" id=\"fullSize\" #fullsize [style.width.px]=\"width\" [style.height.px]=\"height\"></canvas>\n\n    \n    \n    <!--<canvas  #videoResult  [style.width.px]=\"width\" [style.height.px]=\"height\" style=\"visibility:hidden;\"></canvas>-->\n    <canvas  #thumbnail  [style.width.px]=\"width\" [style.height.px]=\"height\"></canvas>\n    \n   <!-- <div  [ngStyle]=\"{'height': height*0.25 + 'px', 'width':width*0.15 + 'px', 'border':'2px solid red', 'top':height * 0.010 + 'px', 'left': width * 0.025 + 'px', 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}\"></div>\n\n   -->\n\n\n  \n</div>\n        </div>\n</section>\n<footer class=\"footer\">\n        <div class=\"container\">\n          <div class=\"content has-text-centered\">\n                <a class=\"button is-primary\" id=\"play\" (click)=\"play()\" [ngStyle]=\"{ 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}\">Play</a>\n                <a class=\"button is-primary\" id=\"switch\" (click)=\"switch()\">Switch</a>\n                    <a class=\"button is-primary\" id=\"stop\" (click)=\"stop()\">Stop</a>\n                        <a class=\"button is-primary\" id=\"torch\">Torch</a>\n \n          </div>\n        </div>\n      </footer>"
+module.exports = "<mat-toolbar color=\"warn\">\n \n<button mat-icon-button [matMenuTriggerFor]=\"menu\">\n  <mat-icon>more_vert</mat-icon>\n</button>\n<mat-menu #menu=\"matMenu\" [style.background]=\"title\">\n  \n    <button mat-menu-item>\n      <mat-icon>notifications_off</mat-icon>\n      <span>Disable alerts</span>\n    </button>\n  </mat-menu>\n  Led's Fashion Clever\n  </mat-toolbar>\n<nav mat-tab-nav-bar>\n    <button mat-button (click)=\"play()\">\n        <mat-icon>play_arrow</mat-icon>\n        <span>Play</span>\n      </button>\n  <button mat-button (click)=\"stop()\" >\n    <mat-icon>stop</mat-icon>\n    <span>Stop</span>\n  </button>\n  <button mat-button (click)=\"switch()\" >\n      <mat-icon>switch_camera</mat-icon>\n      <span>Switch</span>\n    </button>\n</nav>\n\n\n     <mat-grid-list cols=\"1\" rowHeight=\"{{height}}\">\n      <mat-grid-tile  [style.background]=\"title\" [style.height.vh]=\"'85'\">\n        <canvas class=\"raster1s\" id=\"fullSize\" #fullsize [style.height.%]=\"'100'\"></canvas>\n        <div class=\"controls\">\n            <table style=\"width:100%\">\n              <tr style=\"background-color: rgb(255,0,0)\">\n                <th>R:</th>\n                <td style=\"min-width:24px;\">{{red}}</td>\n              </tr>\n              <tr style=\"background-color: rgb(0,255,0)\">\n                <th>G:</th>\n                <td style=\"min-width:24px;\">{{green}}</td>\n              </tr>\n              <tr style=\"background-color: rgb(0,0,255)\">\n                <th>B:</th>\n                <td style=\"min-width:24px;\">{{blue}}</td>\n              </tr>\n            </table>\n          </div>\n      </mat-grid-tile>\n\n    </mat-grid-list>\n            \n    \n    \n    \n   \n    \n        \n"
 
 /***/ }),
 
@@ -60,14 +60,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.title = 'app';
+        this.title = '#444';
         this.flash = false;
         this.position = 'back';
         this.width = window.screen.width * window.devicePixelRatio;
-        this.height = window.screen.height * window.devicePixelRatio;
         this.red = 0;
-        this.green = 255;
+        this.green = 0;
         this.blue = 0;
+        window['plugins'].screensize.get(successCallback, errorCallback);
+        function successCallback(result) {
+            console.log(result);
+            this.height = result.height + 'px';
+        }
+        function errorCallback(err) {
+            console.log(err);
+        }
     }
     AppComponent.prototype.ngAfterViewInit = function () {
         if (window['plugin'].CanvasCamera) {
@@ -75,7 +82,6 @@ var AppComponent = /** @class */ (function () {
                 fullsize: this.fullSize.nativeElement
             });
         }
-        console.log(this.width);
     };
     AppComponent.prototype.play = function () {
         /*  var permissions = cordova.plugins.permissions;
@@ -111,9 +117,6 @@ var AppComponent = /** @class */ (function () {
                     var data = imageData.data;
                     var result = _this.generateData(data);
                     console.log('howdy colors', result);
-                    ctx.fillStyle = "red";
-                    ctx.rect(10, 10, 100, 100);
-                    ctx.fill();
                 }
             };
             window['plugin'].CanvasCamera.start(options, function (error) {
@@ -166,17 +169,28 @@ var AppComponent = /** @class */ (function () {
             });
         }
     };
+    AppComponent.prototype.torch = function () {
+        console.log('switch');
+        if (window['plugin'].CanvasCamera) {
+            this.flash = (this.flash) ? false : true;
+            window['plugin'].CanvasCameras.flashMode(this.flash, function (error) {
+                console.log('[CanvasCamera flashMode]', 'error', error);
+            }, function (data) {
+                console.log('[CanvasCamera flashMode]', 'data', data);
+            });
+        }
+    };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */])('fullsize'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ElementRef */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* ViewChild */])('fullsize'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
     ], AppComponent.prototype, "fullSize", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */])('videoResult'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ElementRef */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* ViewChild */])('videoResult'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
     ], AppComponent.prototype, "videoR", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* ViewChild */])('thumbnail'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* ElementRef */])
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_6" /* ViewChild */])('thumbnail'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
     ], AppComponent.prototype, "thumbnail", void 0);
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
@@ -200,8 +214,9 @@ var AppComponent = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__("../../../platform-browser/esm5/platform-browser.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ng_wizi_bulma__ = __webpack_require__("../../../../ng-wizi-bulma/esm5/ng-wizi-bulma.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/esm5/animations.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -212,17 +227,49 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["G" /* NgModule */])({
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["H" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ng_wizi_bulma__["a" /* NwbModule */]
+                __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["a" /* MatAutocompleteModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["b" /* MatButtonModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["c" /* MatButtonToggleModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["d" /* MatCardModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["e" /* MatCheckboxModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["f" /* MatChipsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["g" /* MatDatepickerModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["h" /* MatDialogModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["i" /* MatExpansionModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["j" /* MatGridListModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["k" /* MatIconModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["l" /* MatInputModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["m" /* MatListModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["n" /* MatMenuModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["o" /* MatNativeDateModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["p" /* MatPaginatorModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["q" /* MatProgressBarModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["r" /* MatProgressSpinnerModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["s" /* MatRadioModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["t" /* MatRippleModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["u" /* MatSelectModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["v" /* MatSidenavModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["x" /* MatSliderModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["w" /* MatSlideToggleModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["y" /* MatSnackBarModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["z" /* MatSortModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["B" /* MatTableModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["C" /* MatTabsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["D" /* MatToolbarModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["E" /* MatTooltipModule */],
+                __WEBPACK_IMPORTED_MODULE_4__angular_material__["A" /* MatStepperModule */]
             ],
             providers: [],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
@@ -260,12 +307,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__ = __webpack_require__("../../../platform-browser-dynamic/esm5/platform-browser-dynamic.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__app_app_module__ = __webpack_require__("../../../../../src/app/app.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("../../../../../src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_hammerjs__ = __webpack_require__("../../../../hammerjs/hammer.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_hammerjs___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_hammerjs__);
+
 
 
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__app_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });

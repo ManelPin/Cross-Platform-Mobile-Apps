@@ -1,51 +1,59 @@
-
-
-<!--The content below is only a placeholder and can be replaced.-->
-<section class="section">
-        <div class="container">
-<div class="controls">
-        <table style="width:100%">
-          <tr style="background-color: rgb(255,0,0)">
-            <th>R:</th>
-            <td style="min-width:24px;">{{red}}</td>
-          </tr>
-          <tr style="background-color: rgb(0,255,0)">
-            <th>G:</th>
-            <td style="min-width:24px;">{{green}}</td>
-          </tr>
-          <tr style="background-color: rgb(0,0,255)">
-            <th>B:</th>
-            <td style="min-width:24px;">{{blue}}</td>
-          </tr>
-        </table>
-      </div>
-<div class="app" >
-     
-            
-    <canvas class="raster1s" id="fullSize" #fullsize [style.width.px]="width" [style.height.px]="height"></canvas>
-
-    
-    
-    <!--<canvas  #videoResult  [style.width.px]="width" [style.height.px]="height" style="visibility:hidden;"></canvas>-->
-    <canvas  #thumbnail  [style.width.px]="width" [style.height.px]="height"></canvas>
-    
-   <!-- <div  [ngStyle]="{'height': height*0.25 + 'px', 'width':width*0.15 + 'px', 'border':'2px solid red', 'top':height * 0.010 + 'px', 'left': width * 0.025 + 'px', 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}"></div>
-
-   -->
-
-
-  
-</div>
-        </div>
-</section>
-<footer class="footer">
-        <div class="container">
-          <div class="content has-text-centered">
-                <a class="button is-primary" id="play" (click)="play()" [ngStyle]="{ 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}">Play</a>
-                <a class="button is-primary" id="switch" (click)="switch()">Switch</a>
-                    <a class="button is-primary" id="stop" (click)="stop()">Stop</a>
-                        <a class="button is-primary" id="torch">Torch</a>
+<mat-toolbar color="warn">
  
+<button mat-icon-button [matMenuTriggerFor]="menu">
+  <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu" [style.background]="title">
+  
+    <button mat-menu-item>
+      <mat-icon>notifications_off</mat-icon>
+      <span>Disable alerts</span>
+    </button>
+  </mat-menu>
+  Led's Fashion Clever
+  </mat-toolbar>
+<nav mat-tab-nav-bar>
+    <button mat-button (click)="play()">
+        <mat-icon>play_arrow</mat-icon>
+        <span>Play</span>
+      </button>
+  <button mat-button (click)="stop()" >
+    <mat-icon>stop</mat-icon>
+    <span>Stop</span>
+  </button>
+  <button mat-button (click)="switch()" >
+      <mat-icon>switch_camera</mat-icon>
+      <span>Switch</span>
+    </button>
+</nav>
+
+
+     <mat-grid-list cols="1" rowHeight="{{height}}">
+      <mat-grid-tile  [style.background]="title" [style.height.vh]="'85'">
+        <canvas class="raster1s" id="fullSize" #fullsize [style.height.%]="'100'"></canvas>
+        <div class="controls">
+            <table style="width:100%">
+              <tr style="background-color: rgb(255,0,0)">
+                <th>R:</th>
+                <td style="min-width:24px;">{{red}}</td>
+              </tr>
+              <tr style="background-color: rgb(0,255,0)">
+                <th>G:</th>
+                <td style="min-width:24px;">{{green}}</td>
+              </tr>
+              <tr style="background-color: rgb(0,0,255)">
+                <th>B:</th>
+                <td style="min-width:24px;">{{blue}}</td>
+              </tr>
+            </table>
           </div>
-        </div>
-      </footer>
+      </mat-grid-tile>
+
+    </mat-grid-list>
+            
+    
+    
+    
+   
+    
+        
