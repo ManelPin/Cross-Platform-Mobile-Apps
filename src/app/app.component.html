@@ -22,16 +22,16 @@
 <div class="app" >
      
             
-    <canvas class="raster" #fullsize [style.width.px]="width" [style.height.px]="height"></canvas>
+    <canvas class="raster1s" id="fullSize" #fullsize [style.width.px]="width" [style.height.px]="height"></canvas>
 
     
     
-    <canvas class="raster" #videoResult  [style.width.px]="width" [style.height.px]="height" style="visibility:hidden;"></canvas>
-    <canvas class="raster" #thumbnail  [style.width.px]="width" [style.height.px]="height"></canvas>
+    <!--<canvas  #videoResult  [style.width.px]="width" [style.height.px]="height" style="visibility:hidden;"></canvas>-->
+    <canvas  #thumbnail  [style.width.px]="width" [style.height.px]="height"></canvas>
     
-    <div  [ngStyle]="{'height': height*0.25 + 'px', 'width':width*0.15 + 'px', 'border':'2px solid red', 'top':height * 0.010 + 'px', 'left': width * 0.025 + 'px', 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}"></div>
+   <!-- <div  [ngStyle]="{'height': height*0.25 + 'px', 'width':width*0.15 + 'px', 'border':'2px solid red', 'top':height * 0.010 + 'px', 'left': width * 0.025 + 'px', 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}"></div>
 
-
+   -->
 
 
   

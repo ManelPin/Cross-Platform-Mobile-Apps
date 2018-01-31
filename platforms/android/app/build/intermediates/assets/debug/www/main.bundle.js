@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<!--The content below is only a placeholder and can be replaced.-->\n<section class=\"section\">\n        <div class=\"container\">\n<div class=\"controls\">\n        <table style=\"width:100%\">\n          <tr style=\"background-color: rgb(255,0,0)\">\n            <th>R:</th>\n            <td style=\"min-width:24px;\">{{red}}</td>\n          </tr>\n          <tr style=\"background-color: rgb(0,255,0)\">\n            <th>G:</th>\n            <td style=\"min-width:24px;\">{{green}}</td>\n          </tr>\n          <tr style=\"background-color: rgb(0,0,255)\">\n            <th>B:</th>\n            <td style=\"min-width:24px;\">{{blue}}</td>\n          </tr>\n        </table>\n      </div>\n<div class=\"app\" >\n     \n            \n    <canvas class=\"raster\" #fullsize [style.width.px]=\"width\" [style.height.px]=\"height\"></canvas>\n\n    \n    \n    <canvas class=\"raster\" #videoResult  [style.width.px]=\"width\" [style.height.px]=\"height\" style=\"visibility:hidden;\"></canvas>\n    <canvas class=\"raster\" #thumbnail  [style.width.px]=\"width\" [style.height.px]=\"height\"></canvas>\n    \n    <div  [ngStyle]=\"{'height': height*0.25 + 'px', 'width':width*0.15 + 'px', 'border':'2px solid red', 'top':height * 0.010 + 'px', 'left': width * 0.025 + 'px', 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}\"></div>\n\n\n\n\n  \n</div>\n        </div>\n</section>\n<footer class=\"footer\">\n        <div class=\"container\">\n          <div class=\"content has-text-centered\">\n                <a class=\"button is-primary\" id=\"play\" (click)=\"play()\" [ngStyle]=\"{ 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}\">Play</a>\n                <a class=\"button is-primary\" id=\"switch\" (click)=\"switch()\">Switch</a>\n                    <a class=\"button is-primary\" id=\"stop\" (click)=\"stop()\">Stop</a>\n                        <a class=\"button is-primary\" id=\"torch\">Torch</a>\n \n          </div>\n        </div>\n      </footer>"
+module.exports = "\n\n<!--The content below is only a placeholder and can be replaced.-->\n<section class=\"section\">\n        <div class=\"container\">\n<div class=\"controls\">\n        <table style=\"width:100%\">\n          <tr style=\"background-color: rgb(255,0,0)\">\n            <th>R:</th>\n            <td style=\"min-width:24px;\">{{red}}</td>\n          </tr>\n          <tr style=\"background-color: rgb(0,255,0)\">\n            <th>G:</th>\n            <td style=\"min-width:24px;\">{{green}}</td>\n          </tr>\n          <tr style=\"background-color: rgb(0,0,255)\">\n            <th>B:</th>\n            <td style=\"min-width:24px;\">{{blue}}</td>\n          </tr>\n        </table>\n      </div>\n<div class=\"app\" >\n     \n            \n    <canvas class=\"raster1s\" id=\"fullSize\" #fullsize [style.width.px]=\"width\" [style.height.px]=\"height\"></canvas>\n\n    \n    \n    <!--<canvas  #videoResult  [style.width.px]=\"width\" [style.height.px]=\"height\" style=\"visibility:hidden;\"></canvas>-->\n    <canvas  #thumbnail  [style.width.px]=\"width\" [style.height.px]=\"height\"></canvas>\n    \n   <!-- <div  [ngStyle]=\"{'height': height*0.25 + 'px', 'width':width*0.15 + 'px', 'border':'2px solid red', 'top':height * 0.010 + 'px', 'left': width * 0.025 + 'px', 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}\"></div>\n\n   -->\n\n\n  \n</div>\n        </div>\n</section>\n<footer class=\"footer\">\n        <div class=\"container\">\n          <div class=\"content has-text-centered\">\n                <a class=\"button is-primary\" id=\"play\" (click)=\"play()\" [ngStyle]=\"{ 'background-color': 'rgba(' + red + ',' + green + ',' + blue + ', 1)'}\">Play</a>\n                <a class=\"button is-primary\" id=\"switch\" (click)=\"switch()\">Switch</a>\n                    <a class=\"button is-primary\" id=\"stop\" (click)=\"stop()\">Stop</a>\n                        <a class=\"button is-primary\" id=\"torch\">Torch</a>\n \n          </div>\n        </div>\n      </footer>"
 
 /***/ }),
 
@@ -72,8 +72,7 @@ var AppComponent = /** @class */ (function () {
     AppComponent.prototype.ngAfterViewInit = function () {
         if (window['plugin'].CanvasCamera) {
             window['plugin'].CanvasCamera.initialize({
-                fullsize: this.fullSize.nativeElement,
-                thumbnail: this.thumbnail.nativeElement
+                fullsize: this.fullSize.nativeElement
             });
         }
         console.log(this.width);
@@ -88,35 +87,55 @@ var AppComponent = /** @class */ (function () {
        
       function success( status ) {
         if( !status.hasPermission ) error();
-      }*/
+      }*/ var _this = this;
         console.log('play');
         if (window['plugin'].CanvasCamera) {
             var options = {
                 use: 'file',
                 fps: 30,
                 flashMode: this.flash,
-                hasThumbnail: true,
+                hasThumbnail: false,
                 thumbnailRatio: 1 / 6,
-                cameraFacing: this.position
+                cameraFacing: this.position,
+                onBeforeDraw: function (frame) {
+                    // do something before drawing a frame
+                    var canvas = _this.fullSize.nativeElement;
+                    var ctx = canvas.getContext('2d');
+                },
+                onAfterDraw: function (frame) {
+                    // do something after drawing a frame
+                    console.log('hi there', frame.renderer.context.canvas);
+                    var canvas = document.getElementById('fullSize');
+                    var ctx = canvas.getContext('2d');
+                    var imageData = ctx.getImageData(0, 0, 100, 100);
+                    var data = imageData.data;
+                    var result = _this.generateData(data);
+                    console.log('howdy colors', result);
+                    ctx.fillStyle = "red";
+                    ctx.rect(10, 10, 100, 100);
+                    ctx.fill();
+                }
             };
-            var canvas = this.fullSize.nativeElement;
-            var context = canvas.getContext("2d");
-            var _this = this;
             window['plugin'].CanvasCamera.start(options, function (error) {
                 console.log('[CanvasCamera start]', 'error', error);
             }, function (data) {
                 console.log('[CanvasCamera start]', 'data', data);
-                var imageObj = new Image();
-                imageObj.onload = function () {
-                    context.drawImage(imageObj, 0, 0);
-                };
-                imageObj.src = data.output.images.fullsize.file;
+                /* var imageObj = new Image();
+                 imageObj.onload = function(){
+                     context.drawImage(imageObj, 0, 0);
+                    
+                 };
+                 imageObj.src = data.output.images.fullsize.file;
+               
+                 var imageData = context.getImageData(0,0,50,
+                  50)
+                   context.putImageData(imageData,0,0)
+                 var data = imageData.data;
+                var result = _this.generateData(data)
+       
+                console.log(result)
+              */
             });
-            var imageData = context.getImageData(0, 0, _this.width, _this.height);
-            context.putImageData(imageData, 0, 0);
-            var data = imageData.data;
-            var result = _this.generateData(data);
-            console.log(result);
         }
     };
     AppComponent.prototype.generateData = function (data) {

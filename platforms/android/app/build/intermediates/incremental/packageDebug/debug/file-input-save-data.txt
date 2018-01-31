@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Tue Jan 30 18:15:36 GMT 2018
+#Tue Jan 30 19:27:33 GMT 2018
 25.file=C\:\\Users\\scga6317\\mobile\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug\\www\\inline.bundle.js
 41.base=C\:\\Users\\scga6317\\mobile\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug
 25.base=C\:\\Users\\scga6317\\mobile\\cordova\\platforms\\android\\app\\build\\intermediates\\assets\\debug

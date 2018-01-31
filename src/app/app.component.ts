@@ -27,8 +27,7 @@ export class AppComponent implements AfterViewInit {
 ngAfterViewInit(){
   if (window['plugin'].CanvasCamera) {
     window['plugin'].CanvasCamera.initialize({
-          fullsize: this.fullSize.nativeElement,
-          thumbnail: this.thumbnail.nativeElement
+          fullsize: this.fullSize.nativeElement
     });
   }
   console.log(this.width)
@@ -43,7 +42,7 @@ function error() {
  
 function success( status ) {
   if( !status.hasPermission ) error();
-}*/
+}*/   var _this = this;
       console.log('play');
       if (window['plugin'].CanvasCamera) {
          var options = {
@@ -52,13 +51,33 @@ function success( status ) {
             use: 'file',
             fps: 30,
             flashMode: this.flash,
-            hasThumbnail: true,
+            hasThumbnail: false,
             thumbnailRatio: 1/6,
-            cameraFacing: this.position
+            cameraFacing: this.position,
+            onBeforeDraw: function(frame){
+              // do something before drawing a frame
+              var canvas = _this.fullSize.nativeElement;
+      
+              var ctx =(<HTMLCanvasElement>canvas).getContext('2d')
+              
+            },
+            onAfterDraw: function(frame){
+              // do something after drawing a frame
+              console.log('hi there',frame.renderer.context.canvas )
+            var canvas = document.getElementById('fullSize')
+      
+              var ctx =(<HTMLCanvasElement>canvas).getContext('2d')
+              var imageData = ctx.getImageData(0,0,100,100);
+               var data = imageData.data;
+               var result = _this.generateData(data);
+ 
+               console.log('howdy colors',result)
+            
+            
+            }
         };
-        var canvas = this.videoR.nativeElement;
-        var context = canvas.getContext("2d");
-       var _this = this;
+        
+    
         window['plugin'].CanvasCamera.start(options, function(error) {
 
           console.log('[CanvasCamera start]', 'error', error);
@@ -67,25 +86,25 @@ function success( status ) {
           
            
         
-            var imageObj = new Image();
+           /* var imageObj = new Image();
             imageObj.onload = function(){
                 context.drawImage(imageObj, 0, 0);
                
             };
             imageObj.src = data.output.images.fullsize.file;
           
-           
-         
+            var imageData = context.getImageData(0,0,50,
+             50)
+              context.putImageData(imageData,0,0)
+            var data = imageData.data;
+           var result = _this.generateData(data)
+  
+           console.log(result)
+         */
       
             })
             
-           var imageData = context.getImageData(0,0, _this.width,
-            _this.height)
-            context.putImageData(imageData,0,0)
-          var data = imageData.data;
-         var result = _this.generateData(data)
-
-         console.log(result)
+          
           }
   
   }
