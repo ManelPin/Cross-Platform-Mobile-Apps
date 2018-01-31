@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-toolbar color=\"warn\">\n \n<button mat-icon-button [matMenuTriggerFor]=\"menu\">\n  <mat-icon>more_vert</mat-icon>\n</button>\n<mat-menu #menu=\"matMenu\" [style.background]=\"title\">\n  \n    <button mat-menu-item>\n      <mat-icon>notifications_off</mat-icon>\n      <span>Disable alerts</span>\n    </button>\n  </mat-menu>\n  Led's Fashion Clever\n  </mat-toolbar>\n<nav mat-tab-nav-bar>\n    <button mat-button (click)=\"play()\">\n        <mat-icon>play_arrow</mat-icon>\n        <span>Play</span>\n      </button>\n  <button mat-button (click)=\"stop()\" >\n    <mat-icon>stop</mat-icon>\n    <span>Stop</span>\n  </button>\n  <button mat-button (click)=\"switch()\" >\n      <mat-icon>switch_camera</mat-icon>\n      <span>Switch</span>\n    </button>\n</nav>\n\n\n     <mat-grid-list cols=\"1\" rowHeight=\"{{height}}\">\n      <mat-grid-tile  [style.background]=\"title\" [style.height.vh]=\"'85'\">\n        <canvas class=\"raster1s\" id=\"fullSize\" #fullsize [style.height.%]=\"'100'\"></canvas>\n        <div class=\"controls\">\n            <table style=\"width:100%\">\n              <tr style=\"background-color: rgb(255,0,0)\">\n                <th>R:</th>\n                <td style=\"min-width:24px;\">{{red}}</td>\n              </tr>\n              <tr style=\"background-color: rgb(0,255,0)\">\n                <th>G:</th>\n                <td style=\"min-width:24px;\">{{green}}</td>\n              </tr>\n              <tr style=\"background-color: rgb(0,0,255)\">\n                <th>B:</th>\n                <td style=\"min-width:24px;\">{{blue}}</td>\n              </tr>\n            </table>\n          </div>\n      </mat-grid-tile>\n\n    </mat-grid-list>\n            \n    \n    \n    \n   \n    \n        \n"
+module.exports = "<mat-toolbar color=\"warn\" >\n    Led's Fashion Clever\n<button mat-icon-button [matMenuTriggerFor]=\"menu\" style=\"margin-left: auto;\">\n  <mat-icon>more_vert</mat-icon>\n</button>\n<mat-menu #menu=\"matMenu\" [style.background]=\"title\">\n  \n    <button mat-menu-item>\n      <mat-icon>notifications_off</mat-icon>\n      <span>Disable alerts</span>\n    </button>\n  </mat-menu>\n\n  </mat-toolbar>\n\n\n\n     <mat-grid-list cols=\"1\" rowHeight=\"{{height}}\">\n      <mat-grid-tile  [style.background]=\"title\" [style.height.vh]=\"'100'\">\n        <canvas class=\"raster1s\" id=\"fullSize\" #fullsize [style.height.%]=\"'100'\"></canvas>\n        <span class=\"done-r\">\n        <div class=\"controls\">\n            <table style=\"width:100%\">\n              <tr style=\"background-color: rgb(255,0,0)\">\n                <th>R:</th>\n                <td style=\"width:26px;\">{{red}}</td>\n              </tr>\n              <tr style=\"background-color: rgb(0,255,0)\">\n                <th>G:</th>\n                <td style=\"width:26px;\">{{green}}</td>\n              </tr>\n              <tr style=\"background-color: rgb(0,0,255)\">\n                <th>B:</th>\n                <td style=\"width:26px;\">{{blue}}</td>\n              </tr>\n            </table>\n          </div>\n        </span>\n          <span class=\"done\">\n          <button mat-fab color=\"warn\" (click)=\"play()\" aria-label=\"play video\">\n              <mat-icon>play_arrow</mat-icon>\n              \n            </button>\n          </span>\n      </mat-grid-tile>\n      <mat-grid-tile ></mat-grid-tile>\n    </mat-grid-list>\n            \n    \n    \n    \n   \n    \n        \n"
 
 /***/ }),
 
@@ -60,6 +60,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
+        this.toogle = true;
         this.title = '#444';
         this.flash = false;
         this.position = 'back';
@@ -84,61 +85,43 @@ var AppComponent = /** @class */ (function () {
         }
     };
     AppComponent.prototype.play = function () {
-        /*  var permissions = cordova.plugins.permissions;
-          permissions.requestPermission(permissions.CAMERA, success, error);
-       
-      function error() {
-        console.warn('Camera permission is not turned on');
-      }
-       
-      function success( status ) {
-        if( !status.hasPermission ) error();
-      }*/ var _this = this;
+        this.toogle = !this.toogle;
+        var _this = this;
         console.log('play');
-        if (window['plugin'].CanvasCamera) {
-            var options = {
-                use: 'file',
-                fps: 30,
-                flashMode: this.flash,
-                hasThumbnail: false,
-                thumbnailRatio: 1 / 6,
-                cameraFacing: this.position,
-                onBeforeDraw: function (frame) {
-                    // do something before drawing a frame
-                    var canvas = _this.fullSize.nativeElement;
-                    var ctx = canvas.getContext('2d');
-                },
-                onAfterDraw: function (frame) {
-                    // do something after drawing a frame
-                    console.log('hi there', frame.renderer.context.canvas);
-                    var canvas = document.getElementById('fullSize');
-                    var ctx = canvas.getContext('2d');
-                    var imageData = ctx.getImageData(0, 0, 100, 100);
-                    var data = imageData.data;
-                    var result = _this.generateData(data);
-                    console.log('howdy colors', result);
-                }
-            };
-            window['plugin'].CanvasCamera.start(options, function (error) {
-                console.log('[CanvasCamera start]', 'error', error);
-            }, function (data) {
-                console.log('[CanvasCamera start]', 'data', data);
-                /* var imageObj = new Image();
-                 imageObj.onload = function(){
-                     context.drawImage(imageObj, 0, 0);
-                    
-                 };
-                 imageObj.src = data.output.images.fullsize.file;
-               
-                 var imageData = context.getImageData(0,0,50,
-                  50)
-                   context.putImageData(imageData,0,0)
-                 var data = imageData.data;
-                var result = _this.generateData(data)
-       
-                console.log(result)
-              */
-            });
+        if (this.toogle) {
+            if (window['plugin'].CanvasCamera) {
+                var options = {
+                    use: 'file',
+                    fps: 30,
+                    flashMode: this.flash,
+                    hasThumbnail: false,
+                    thumbnailRatio: 1 / 6,
+                    cameraFacing: this.position,
+                    onBeforeDraw: function (frame) {
+                        // do something before drawing a frame
+                        var canvas = _this.fullSize.nativeElement;
+                        var ctx = canvas.getContext('2d');
+                    },
+                    onAfterDraw: function (frame) {
+                        // do something after drawing a frame
+                        console.log('hi there', frame.renderer.context.canvas);
+                        var canvas = document.getElementById('fullSize');
+                        var ctx = canvas.getContext('2d');
+                        var imageData = ctx.getImageData(0, 0, 100, 100);
+                        var data = imageData.data;
+                        var result = _this.generateData(data);
+                        console.log('howdy colors', result);
+                    }
+                };
+                window['plugin'].CanvasCamera.start(options, function (error) {
+                    console.log('[CanvasCamera start]', 'error', error);
+                }, function (data) {
+                    console.log('[CanvasCamera start]', 'data', data);
+                });
+            }
+        }
+        else {
+            this.stop();
         }
     };
     AppComponent.prototype.generateData = function (data) {

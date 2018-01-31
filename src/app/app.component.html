@@ -1,6 +1,6 @@
-<mat-toolbar color="warn">
- 
-<button mat-icon-button [matMenuTriggerFor]="menu">
+<mat-toolbar color="warn" >
+    Led's Fashion Clever
+<button mat-icon-button [matMenuTriggerFor]="menu" style="margin-left: auto;">
   <mat-icon>more_vert</mat-icon>
 </button>
 <mat-menu #menu="matMenu" [style.background]="title">
@@ -10,45 +10,40 @@
       <span>Disable alerts</span>
     </button>
   </mat-menu>
-  Led's Fashion Clever
+
   </mat-toolbar>
-<nav mat-tab-nav-bar>
-    <button mat-button (click)="play()">
-        <mat-icon>play_arrow</mat-icon>
-        <span>Play</span>
-      </button>
-  <button mat-button (click)="stop()" >
-    <mat-icon>stop</mat-icon>
-    <span>Stop</span>
-  </button>
-  <button mat-button (click)="switch()" >
-      <mat-icon>switch_camera</mat-icon>
-      <span>Switch</span>
-    </button>
-</nav>
+
 
 
      <mat-grid-list cols="1" rowHeight="{{height}}">
-      <mat-grid-tile  [style.background]="title" [style.height.vh]="'85'">
+      <mat-grid-tile  [style.background]="title" [style.height.vh]="'100'">
         <canvas class="raster1s" id="fullSize" #fullsize [style.height.%]="'100'"></canvas>
+        <span class="done-r">
         <div class="controls">
             <table style="width:100%">
               <tr style="background-color: rgb(255,0,0)">
                 <th>R:</th>
-                <td style="min-width:24px;">{{red}}</td>
+                <td style="width:26px;">{{red}}</td>
               </tr>
               <tr style="background-color: rgb(0,255,0)">
                 <th>G:</th>
-                <td style="min-width:24px;">{{green}}</td>
+                <td style="width:26px;">{{green}}</td>
               </tr>
               <tr style="background-color: rgb(0,0,255)">
                 <th>B:</th>
-                <td style="min-width:24px;">{{blue}}</td>
+                <td style="width:26px;">{{blue}}</td>
               </tr>
             </table>
           </div>
+        </span>
+          <span class="done">
+          <button mat-fab color="warn" (click)="play()" aria-label="play video">
+              <mat-icon>play_arrow</mat-icon>
+              
+            </button>
+          </span>
       </mat-grid-tile>
-
+      <mat-grid-tile ></mat-grid-tile>
     </mat-grid-list>
             
     

@@ -8,6 +8,7 @@ declare var cordova:any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit {
+  toogle: any = true;
   title = '#444';
   flash = false;
   position = 'back';
@@ -42,17 +43,10 @@ ngAfterViewInit(){
  
 }
   public play():void{
-  /*  var permissions = cordova.plugins.permissions;
-    permissions.requestPermission(permissions.CAMERA, success, error);
- 
-function error() {
-  console.warn('Camera permission is not turned on');
-}
- 
-function success( status ) {
-  if( !status.hasPermission ) error();
-}*/   var _this = this;
+    this.toogle = !this.toogle
+    var _this = this;
       console.log('play');
+      if(this.toogle){
       if (window['plugin'].CanvasCamera) {
          var options = {
       
@@ -95,27 +89,15 @@ function success( status ) {
           
            
         
-           /* var imageObj = new Image();
-            imageObj.onload = function(){
-                context.drawImage(imageObj, 0, 0);
-               
-            };
-            imageObj.src = data.output.images.fullsize.file;
-          
-            var imageData = context.getImageData(0,0,50,
-             50)
-              context.putImageData(imageData,0,0)
-            var data = imageData.data;
-           var result = _this.generateData(data)
-  
-           console.log(result)
-         */
+       
       
             })
             
           
           }
-  
+        } else {
+          this.stop()
+        }
   }
   private generateData(data){
  
