@@ -7,6 +7,7 @@ import 'hammerjs';
 if (environment.production) {
   enableProdMode();
 }
-
+document.addEventListener("deviceready", () => {
 platformBrowserDynamic().bootstrapModule(AppModule)
   .catch(err => console.log(err));
+});

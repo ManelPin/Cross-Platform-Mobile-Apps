@@ -15,8 +15,8 @@ body {
 }
 .done {
   position: fixed;
-  bottom: 20px;
-  left: 20px;
+  bottom: 115px;
+  margin-left: auto;
   color: white;
 }
 .done-r {
@@ -24,4 +24,27 @@ body {
   bottom: 20px;
   right: 20px;
   color: white;
+}
+.done-b {
+  position: fixed;
+  bottom: 0px;
+  color: white;
+  width:100%;
+}
+.done-t {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  color: white;
+}
+.done-t-r {
+  position: fixed;
+  top: 0px;
+  right: 20px;
+  color: white;
+}
+.example-fill-remaining-space {
+  /* This fills the remaining space, by using flexbox. 
+     Every toolbar row uses a flexbox row layout. */
+  flex: 1 1 auto;
 }
