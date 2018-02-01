@@ -110,7 +110,7 @@ public setPreview() {
             var canvas = document.getElementById('fullSize')
           
 
-              var centerOfWindow = { x: _this.width/2, y: _this.height/2}
+              var centerOfWindow = { x: frame.renderer.context.canvas.attributes.width.value/2, y:frame.renderer.context.canvas.attributes.height.value/2}
               var rectW = 200;
               var rectH = 200;
               var ctx =(<HTMLCanvasElement>canvas).getContext('2d')

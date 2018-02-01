@@ -25,6 +25,7 @@
     </span>
     <canvas class="raster1s" id="fullSize" #fullsize [style.height.%]="'100'"></canvas>
     <span [ngStyle]="setStyles()"></span>
+    <span [ngStyle]="setPreview()"></span>
     <span class="done">
        <button mat-fab color="warn"  (click)="play()" aria-label="play video">
        <mat-icon *ngIf="onPlay" >play_arrow</mat-icon>
