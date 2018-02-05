@@ -14,7 +14,7 @@ body {
   float: right;
 }
 .done {
-  position: fixed;
+  position: absolute;
   bottom: 115px;
   margin-left: auto;
   color: white;
@@ -28,6 +28,12 @@ body {
 .done-b {
   position: fixed;
   bottom: 0px;
+  color: white;
+  width:100%;
+}
+.done-b-50 {
+  position: fixed;
+  bottom: 50px;
   color: white;
   width:100%;
 }

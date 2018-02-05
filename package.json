@@ -11,7 +11,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "gogo": "ng build & cordova run android"
+    "gogo": "ng build && cordova run android"
   },
   "private": true,
   "dependencies": {
@@ -26,13 +26,18 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "@ionic-native/ble": "^4.5.3",
+    "@ionic-native/core": "^4.5.3",
     "@progress/kendo-theme-default": "^2.47.2",
+    "@types/cordova-plugin-ble-central": "^1.1.0",
     "@types/cordova-plugin-canvascamera": "^1.0.0",
     "bulma": "^0.6.2",
     "com.virtuoworks.cordova-plugin-canvascamera": "git+https://github.com/VirtuoWorks/CanvasCameraPlugin.git",
     "cordova-android": "^7.0.0",
     "cordova-browser": "^4.1.0",
     "cordova-plugin-android-permissions": "^1.0.0",
+    "cordova-plugin-ble-central": "^1.1.4",
+    "cordova-plugin-browsersync": "^1.1.0",
     "cordova-plugin-compat": "^1.2.0",
     "cordova-plugin-livereload": "^1.2.2",
     "cordova-plugin-screensize": "^1.3.1",
@@ -71,7 +76,10 @@
       "com.virtuoworks.cordova-plugin-canvascamera": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-android-permissions": {},
-      "cordova-plugin-screensize": {}
+      "cordova-plugin-screensize": {},
+      "cordova-plugin-ble-central": {
+        "BLUETOOTH_USAGE_DESCRIPTION": "Connect to Clever BLE"
+      }
     },
     "platforms": [
       "android"

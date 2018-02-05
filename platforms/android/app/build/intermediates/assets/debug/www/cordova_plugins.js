@@ -24,6 +24,14 @@ module.exports = [
     "clobbers": [
       "window.plugins.screensize"
     ]
+  },
+  {
+    "id": "cordova-plugin-ble-central.ble",
+    "file": "plugins/cordova-plugin-ble-central/www/ble.js",
+    "pluginId": "cordova-plugin-ble-central",
+    "clobbers": [
+      "ble"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -32,7 +40,8 @@ module.exports.metadata =
   "com.virtuoworks.cordova-plugin-canvascamera": "1.1.5",
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-android-permissions": "1.0.0",
-  "cordova-plugin-screensize": "1.3.1"
+  "cordova-plugin-screensize": "1.3.1",
+  "cordova-plugin-ble-central": "1.1.4"
 };
 // BOTTOM OF METADATA
 });

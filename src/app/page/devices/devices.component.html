@@ -1,0 +1,17 @@
+<mat-grid-list cols="1" rowHeight="600">
+  <mat-grid-tile  [style.height.%]="'100'">
+     
+      
+     
+      <mat-list>
+          <mat-list-item *ngFor="let mark of led.dispositivos, let i = index">
+              <mat-icon matListIconc color="warn">bluetooth</mat-icon>
+            <h3 matLine> {{mark.name}}{{mark.id}} </h3>
+            <p matLine>
+                <button *ngIf="!mark.show" mat-button color="warn" (click)="start(i,mark.id)" >Connect to Device</button>
+                <button *ngIf="mark.show"  mat-button color="warn"  (click)="disconnect(i,mark.id)" >Disconnect Device</button>
+            </p>
+          </mat-list-item>
+        </mat-list>
+  </mat-grid-tile>
+</mat-grid-list>

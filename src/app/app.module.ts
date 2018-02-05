@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.router';
 import {
   MatAutocompleteModule,
   MatButtonModule,
@@ -35,10 +36,16 @@ import {
   MatTooltipModule,
   MatStepperModule,
 } from '@angular/material';
-
+import { HomeComponent } from './page/home/home.component';
+import { WheelComponent } from './page/wheel/wheel.component';
+import { DevicesComponent } from './page/devices/devices.component';
+import {LedsproviderService} from './ledsprovider.service'
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    WheelComponent,
+    DevicesComponent
   ],
   imports: [
     BrowserModule,
@@ -73,9 +80,10 @@ import {
   MatTabsModule,
   MatToolbarModule,
   MatTooltipModule,
-  MatStepperModule
+  MatStepperModule,
+  AppRoutingModule
   ],
-  providers: [],
+  providers: [LedsproviderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

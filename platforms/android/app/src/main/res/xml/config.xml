@@ -14,6 +14,9 @@
     <feature name="ScreenSize">
         <param name="android-package" value="com.pbakondy.ScreenSize" />
     </feature>
+    <feature name="BLE">
+        <param name="android-package" value="com.megster.cordova.ble.central.BLECentralPlugin" />
+    </feature>
     <name>HelloCordova</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
