@@ -11,7 +11,7 @@ export class HomeComponent {
   onPlay = true;
   toogle: any = true;
   title = '#444';
-  flash = true;
+  flash = false;
   position = 'back';
   width =  window.innerWidth;
   height =  window.innerHeight;
@@ -19,6 +19,8 @@ export class HomeComponent {
   green:number=0;
   blue:number=0;
   context:any;
+  squareDim=10; //ajustar para a melhor captura de cor
+  arredonda=5; //ajustar para a melhor captura de cor
   @ViewChild('fullsize') fullSize:ElementRef;
   @ViewChild('videoResult') videoR:ElementRef;
   @ViewChild('thumbnail') thumbnail:ElementRef;
@@ -47,7 +49,8 @@ ngAfterViewInit(){
           fullsize: this.fullSize.nativeElement
     });
   }
- 
+  
+           
 }
 public setStyles() {
   var centerOfWindow = { x: this.width/2, y: this.height/2}
@@ -67,9 +70,9 @@ public setPreview() {
   let styles = {
     'height':'45px',
     'width':'65px',    
-    'position':'absolute',
     'top': '0px',
-    'z-index': '99999',          
+    'z-index': '99999',
+    'position': 'absolute',          
     'margin-left': 'auto',
     'margin-right': 'auto',
     'display':' block',
@@ -106,21 +109,20 @@ public setPreview() {
             onAfterDraw: function(frame){
               // do something after drawing a frame
               console.log('hi there',frame.renderer.context)
-            var canvas = document.getElementById('fullSize')
-          
-
-              var centerOfWindow = { x: frame.renderer.context.canvas.attributes.width.value/2, y:frame.renderer.context.canvas.attributes.height.value/2}
-              var rectW = 200;
-              var rectH = 200;
+            var canvas = _this.fullSize.nativeElement
+         
+            const canvasWidth = canvas.width;
+            const canvasHeight = canvas.height;
               var ctx =(<HTMLCanvasElement>canvas).getContext('2d')
-              var imageData = ctx.getImageData(centerOfWindow.x - (rectW/2),centerOfWindow.y - (rectH/2),rectW,rectH);
-               var data = imageData.data;
-               var widthH = imageData.width;
-               var heightV = imageData.height;
-
-              _this.generateData(data, widthH,heightV);
+              const imageData = ctx.getImageData(canvasWidth / 2 - _this.squareDim / 2 , canvasHeight / 2 - _this.squareDim , _this.squareDim, _this.squareDim);
+               const data = imageData.data;
+               const result = _this.generateData(data, _this.arredonda) ;
+               const cor = _this.hexToRgb(result);
+               _this.red = cor.r;
+               _this.green = cor.g;
+               _this.blue = cor.b;
  
-               console.log('howdy colors',widthH)
+               console.log('howdy colors',result)
             
             
             }
@@ -147,91 +149,65 @@ public setPreview() {
           
       
   }
-  private generateData(data, widthH, heightV){
-    var colorsR = [],
-    colorsG= [],
-     colorsB= [],
-     red = {},
-     green = {},
-     blue = {};
-    for(var y = 0; y < widthH; y ++) {
-        for(var x = 0; x < heightV; x++){
-          var index = (x + y * widthH) * 4
-          var colors = {
-     r : data[index],
-      g : data[index + 1],
-      b: data[index + 2],
-      a : data[index + 3]
+  private generateData( data, redonda) {
+   
+    const histo = {};
+    let freqCorMais = 0;
+    let corMais: string;
+    
+      for (let i = 0 ; i < data.length; i = i + 4) {
+
+        
+       let rRed = redonda * (Math.round(data[i] / redonda));
+        let gGreen = redonda * (Math.round(data[i + 1] / redonda));
+       let bBlue = redonda * (Math.round(data[i +2] / redonda));
+
+       let hex = this.rgbToHex( rRed, gGreen, bBlue );
+
+       if (histo[hex] === undefined ) {
+        histo[hex] = 1;
+       } else {
+        histo[hex]++;
+       
+       }
+      }
+
+
+
+    for ( const color  in histo ) {
+      if ( freqCorMais < histo[color]) {
+        corMais = color;
+        freqCorMais = histo[color];
 
       }
-      colorsR.push(colors.r);
-    colorsG.push(colors.g);
-       colorsB.push(colors.b);
-    } 
+  }
 
-    }
-    for (var ij = 0; ij < colorsR.length; ij++) {
-      red[colorsR[ij]] = (red[colorsR[ij]]|| 0) + 1;
+
+
+  
       
 
-   }
-   
-  
+    
+    return corMais;
+  }
  
 
-   
-   for (var j = 0; j < colorsG.length; j++) {
-     green[colorsG[j]] = (green[colorsG[j]] || 0) + 1;
-  }
-  //console.log(JSON.stringify(green))
-  for (var t = 0, k = colorsB.length; t < k; t++) {
-   blue[colorsB[t]] = (blue[colorsB[t]] || 0) + 1;
+  componentToHex(c) {
+    const hex = c.toString(16);
+    return hex.length === 1 ? '0' + hex : hex;
 }
-  this.blue = this.generateColor(blue);
-  this.red = this.generateColor(red);
-  this.green = this.generateColor(green);
- this.clear(blue)
- this.clear(red)
- this.clear(green)
- this.led.liga(this.red,this.green,this.blue, 100, 0);
-  }
-  private clear(obj){
-    for (var key in obj) {
-      // this check can be safely omitted in modern JS engines
-      // if (obj.hasOwnProperty(key))
-        delete obj[key];
-    }
-  }
-  private  generateColor(data) {
-    var tempArray = [];
 
-    for (let k in data){
-     if(parseInt(k) > 0){
-         tempArray.push({index: k, value:data[k]})
-     }
-      
-    }
-    //console.log(JSON.stringify(tempArray))
-    var max = _.max( tempArray, function(elti) { return elti.value;  });
-    console.log(JSON.stringify(max))
-     var tArray = [];
-     for(var i = 0; i < tempArray.length; i++){
-        tArray.push(tempArray[i]);
-      
-         
-         
-     }
-     for(var il= 0; il < tArray.length; il++){
-       if(tArray[il].value === max.value){
-          var result = tArray[il].index
-         }
-       }
-    
-           return result;
-          
-        
-     
- }
+rgbToHex(r, g, b) {
+    return '#' + this.componentToHex(r) + this.componentToHex(g) + this.componentToHex(b);
+}
+ hexToRgb(hex) {
+  let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  return result ? {
+      r: parseInt(result[1], 16),
+      g: parseInt(result[2], 16),
+      b: parseInt(result[3], 16)
+  } : null;
+}
   public stop(){
     this.onStop = false;
     this.onPlay = true;

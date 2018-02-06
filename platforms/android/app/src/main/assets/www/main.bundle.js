@@ -362,7 +362,7 @@ var LedsproviderService = /** @class */ (function () {
 /***/ "../../../../../src/app/page/devices/devices.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"1\" rowHeight=\"600\">\n  <mat-grid-tile  [style.height.%]=\"'100'\">\n     \n      \n     \n      <mat-list>\n          <mat-list-item *ngFor=\"let mark of led.dispositivos, let i = index\">\n              <mat-icon matListIconc color=\"warn\">bluetooth</mat-icon>\n            <h3 matLine> {{mark.name}}{{mark.id}} </h3>\n            <p matLine>\n                <button *ngIf=\"!mark.show\" mat-button color=\"warn\" (click)=\"start(i,mark.id)\" >Connect to Device</button>\n                <button *ngIf=\"mark.show\"  mat-button color=\"warn\"  (click)=\"disconnect(i,mark.id)\" >Disconnect Device</button>\n            </p>\n          </mat-list-item>\n        </mat-list>\n  </mat-grid-tile>\n</mat-grid-list>"
+module.exports = "\n     \n      \n     \n      <mat-list>\n          <mat-list-item *ngFor=\"let mark of led.dispositivos, let i = index\">\n              <mat-icon matListIconc color=\"warn\">bluetooth</mat-icon>\n            <h3 matLine> {{mark.name}}{{mark.id}} </h3>\n            <p matLine>\n                <button *ngIf=\"!mark.show\" mat-button color=\"warn\" (click)=\"start(i,mark.id)\" >Connect to Device</button>\n                <button *ngIf=\"mark.show\"  mat-button color=\"warn\"  (click)=\"disconnect(i,mark.id)\" >Disconnect Device</button>\n            </p>\n          </mat-list-item>\n        </mat-list>\n"
 
 /***/ }),
 
@@ -489,7 +489,7 @@ var DevicesComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/page/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"1\" rowHeight=\"{{height}}\">\n  <mat-grid-tile  [style.background]=\"title\" [style.height.%]=\"'100'\">\n  <span class=\"done-t\">\n     <div class=\"controls\">\n        <table style=\"width:100%\">\n           <tr style=\"background-color: rgb(255,0,0)\">\n              <th>R:</th>\n              <td style=\"width:26px;\">{{red}}</td>\n           </tr>\n           <tr style=\"background-color: rgb(0,255,0)\">\n              <th>G:</th>\n              <td style=\"width:26px;\">{{green}}</td>\n           </tr>\n           <tr style=\"background-color: rgb(0,0,255)\">\n              <th>B:</th>\n              <td style=\"width:26px;\">{{blue}}</td>\n           </tr>\n        </table>\n     </div>\n  </span>\n  <span class=\"done-t-r\">\n      <button mat-icon-button (click)=\"torch()\">\n          <mat-icon>flash_on</mat-icon>   \n       </button>\n  </span>\n  <canvas class=\"raster1s\" id=\"fullSize\" #fullsize [style.height.%]=\"'100'\"></canvas>\n  <span [ngStyle]=\"setStyles()\"></span>\n  <span [ngStyle]=\"setPreview()\"></span>\n  <span class=\"done\">\n     <button mat-fab color=\"warn\"  (click)=\"play()\" aria-label=\"play video\">\n     <mat-icon *ngIf=\"onPlay\" >play_arrow</mat-icon>\n     <mat-icon *ngIf=\"onStop\">stop</mat-icon>\n     </button>\n  </span>\n\n  </mat-grid-tile>\n\n    \n\n</mat-grid-list>"
+module.exports = "<div class=\"Aligner\">\n      <span class=\"done-t\">\n          <div class=\"controls\">\n             <table style=\"width:100%\">\n                <tr style=\"background-color: rgb(255,0,0)\">\n                   <th>R:</th>\n                   <td style=\"width:26px;\">{{red}}</td>\n                </tr>\n                <tr style=\"background-color: rgb(0,255,0)\">\n                   <th>G:</th>\n                   <td style=\"width:26px;\">{{green}}</td>\n                </tr>\n                <tr style=\"background-color: rgb(0,0,255)\">\n                   <th>B:</th>\n                   <td style=\"width:26px;\">{{blue}}</td>\n                </tr>\n             </table>\n          </div>\n       </span>\n       <span [ngStyle]=\"setPreview()\"></span>\n       <span [ngStyle]=\"setStyles()\"></span>\n       <span class=\"done-t-r\">\n          <button mat-icon-button (click)=\"torch()\">\n              <mat-icon>flash_on</mat-icon>   \n           </button>\n      </span>\n            <canvas #fullsize></canvas>\n  \n\n  \n\n  <span class=\"done Aligner-item\">\n     <button mat-fab color=\"warn\"  (click)=\"play()\" aria-label=\"play video\">\n     <mat-icon *ngIf=\"onPlay\" >play_arrow</mat-icon>\n     <mat-icon *ngIf=\"onStop\">stop</mat-icon>\n     </button>\n  </span>\n</div>"
 
 /***/ }),
 
@@ -501,7 +501,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".Aligner {\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-align: center;\n      -ms-flex-align: center;\n          align-items: center;\n  min-height: 24em;\n  -webkit-box-pack: center;\n      -ms-flex-pack: center;\n          justify-content: center; }\n\n.Aligner-item {\n  -webkit-box-flex: 1;\n      -ms-flex: 1;\n          flex: 1;\n  margin-left: auto;\n  margin-right: auto; }\n\n.Aligner-item--top {\n  -ms-flex-item-align: start;\n      align-self: flex-start; }\n\n.Aligner-item--bottom {\n  -ms-flex-item-align: end;\n      align-self: flex-end; }\n\n.Aligner-item--fixed {\n  -webkit-box-flex: 0;\n      -ms-flex: none;\n          flex: none;\n  max-width: 50%; }\n", ""]);
 
 // exports
 
@@ -518,8 +518,6 @@ module.exports = module.exports.toString();
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomeComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ledsprovider_service__ = __webpack_require__("../../../../../src/app/ledsprovider.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_underscore__ = __webpack_require__("../../../../underscore/underscore.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_underscore___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_underscore__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -531,7 +529,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
 var HomeComponent = /** @class */ (function () {
     function HomeComponent(led) {
         this.led = led;
@@ -539,13 +536,15 @@ var HomeComponent = /** @class */ (function () {
         this.onPlay = true;
         this.toogle = true;
         this.title = '#444';
-        this.flash = true;
+        this.flash = false;
         this.position = 'back';
         this.width = window.innerWidth;
         this.height = window.innerHeight;
         this.red = 0;
         this.green = 0;
         this.blue = 0;
+        this.squareDim = 10; //ajustar para a melhor captura de cor
+        this.arredonda = 5; //ajustar para a melhor captura de cor
         var _this = this;
         window['plugins'].screensize.get(successCallback, errorCallback);
         function successCallback(result) {
@@ -582,9 +581,9 @@ var HomeComponent = /** @class */ (function () {
         var styles = {
             'height': '45px',
             'width': '65px',
-            'position': 'absolute',
             'top': '0px',
             'z-index': '99999',
+            'position': 'absolute',
             'margin-left': 'auto',
             'margin-right': 'auto',
             'display': ' block',
@@ -616,17 +615,18 @@ var HomeComponent = /** @class */ (function () {
                     onAfterDraw: function (frame) {
                         // do something after drawing a frame
                         console.log('hi there', frame.renderer.context);
-                        var canvas = document.getElementById('fullSize');
-                        var centerOfWindow = { x: frame.renderer.context.canvas.attributes.width.value / 2, y: frame.renderer.context.canvas.attributes.height.value / 2 };
-                        var rectW = 200;
-                        var rectH = 200;
+                        var canvas = _this.fullSize.nativeElement;
+                        var canvasWidth = canvas.width;
+                        var canvasHeight = canvas.height;
                         var ctx = canvas.getContext('2d');
-                        var imageData = ctx.getImageData(centerOfWindow.x - (rectW / 2), centerOfWindow.y - (rectH / 2), rectW, rectH);
+                        var imageData = ctx.getImageData(canvasWidth / 2 - _this.squareDim / 2, canvasHeight / 2 - _this.squareDim, _this.squareDim, _this.squareDim);
                         var data = imageData.data;
-                        var widthH = imageData.width;
-                        var heightV = imageData.height;
-                        _this.generateData(data, widthH, heightV);
-                        console.log('howdy colors', widthH);
+                        var result = _this.generateData(data, _this.arredonda);
+                        var cor = _this.hexToRgb(result);
+                        _this.red = cor.r;
+                        _this.green = cor.g;
+                        _this.blue = cor.b;
+                        console.log('howdy colors', result);
                     }
                 };
                 window['plugin'].CanvasCamera.start(options, function (error) {
@@ -640,67 +640,44 @@ var HomeComponent = /** @class */ (function () {
             this.stop();
         }
     };
-    HomeComponent.prototype.generateData = function (data, widthH, heightV) {
-        var colorsR = [], colorsG = [], colorsB = [], red = {}, green = {}, blue = {};
-        for (var y = 0; y < widthH; y++) {
-            for (var x = 0; x < heightV; x++) {
-                var index = (x + y * widthH) * 4;
-                var colors = {
-                    r: data[index],
-                    g: data[index + 1],
-                    b: data[index + 2],
-                    a: data[index + 3]
-                };
-                colorsR.push(colors.r);
-                colorsG.push(colors.g);
-                colorsB.push(colors.b);
+    HomeComponent.prototype.generateData = function (data, redonda) {
+        var histo = {};
+        var freqCorMais = 0;
+        var corMais;
+        for (var i = 0; i < data.length; i = i + 4) {
+            var rRed = redonda * (Math.round(data[i] / redonda));
+            var gGreen = redonda * (Math.round(data[i + 1] / redonda));
+            var bBlue = redonda * (Math.round(data[i + 2] / redonda));
+            var hex = this.rgbToHex(rRed, gGreen, bBlue);
+            if (histo[hex] === undefined) {
+                histo[hex] = 1;
+            }
+            else {
+                histo[hex]++;
             }
         }
-        for (var ij = 0; ij < colorsR.length; ij++) {
-            red[colorsR[ij]] = (red[colorsR[ij]] || 0) + 1;
+        for (var color in histo) {
+            if (freqCorMais < histo[color]) {
+                corMais = color;
+                freqCorMais = histo[color];
+            }
         }
-        for (var j = 0; j < colorsG.length; j++) {
-            green[colorsG[j]] = (green[colorsG[j]] || 0) + 1;
-        }
-        //console.log(JSON.stringify(green))
-        for (var t = 0, k = colorsB.length; t < k; t++) {
-            blue[colorsB[t]] = (blue[colorsB[t]] || 0) + 1;
-        }
-        this.blue = this.generateColor(blue);
-        this.red = this.generateColor(red);
-        this.green = this.generateColor(green);
-        this.clear(blue);
-        this.clear(red);
-        this.clear(green);
-        this.led.liga(this.red, this.green, this.blue, 100, 0);
+        return corMais;
     };
-    HomeComponent.prototype.clear = function (obj) {
-        for (var key in obj) {
-            // this check can be safely omitted in modern JS engines
-            // if (obj.hasOwnProperty(key))
-            delete obj[key];
-        }
+    HomeComponent.prototype.componentToHex = function (c) {
+        var hex = c.toString(16);
+        return hex.length === 1 ? '0' + hex : hex;
     };
-    HomeComponent.prototype.generateColor = function (data) {
-        var tempArray = [];
-        for (var k in data) {
-            if (parseInt(k) > 0) {
-                tempArray.push({ index: k, value: data[k] });
-            }
-        }
-        //console.log(JSON.stringify(tempArray))
-        var max = __WEBPACK_IMPORTED_MODULE_2_underscore__["max"](tempArray, function (elti) { return elti.value; });
-        console.log(JSON.stringify(max));
-        var tArray = [];
-        for (var i = 0; i < tempArray.length; i++) {
-            tArray.push(tempArray[i]);
-        }
-        for (var il = 0; il < tArray.length; il++) {
-            if (tArray[il].value === max.value) {
-                var result = tArray[il].index;
-            }
-        }
-        return result;
+    HomeComponent.prototype.rgbToHex = function (r, g, b) {
+        return '#' + this.componentToHex(r) + this.componentToHex(g) + this.componentToHex(b);
+    };
+    HomeComponent.prototype.hexToRgb = function (hex) {
+        var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+        return result ? {
+            r: parseInt(result[1], 16),
+            g: parseInt(result[2], 16),
+            b: parseInt(result[3], 16)
+        } : null;
     };
     HomeComponent.prototype.stop = function () {
         this.onStop = false;
