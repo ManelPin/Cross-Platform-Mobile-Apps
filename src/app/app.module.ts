@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
+import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 import { AppRoutingModule } from './app.router';
 import {
   MatAutocompleteModule,
@@ -39,13 +40,15 @@ import {
 import { HomeComponent } from './page/home/home.component';
 import { WheelComponent } from './page/wheel/wheel.component';
 import { DevicesComponent } from './page/devices/devices.component';
-import {LedsproviderService} from './ledsprovider.service'
+import {LedsproviderService} from './ledsprovider.service';
+import { PhotosComponent } from './page/photos/photos.component'
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     WheelComponent,
-    DevicesComponent
+    DevicesComponent,
+    PhotosComponent
   ],
   imports: [
     BrowserModule,
@@ -81,7 +84,8 @@ import {LedsproviderService} from './ledsprovider.service'
   MatToolbarModule,
   MatTooltipModule,
   MatStepperModule,
-  AppRoutingModule
+  AppRoutingModule,
+  Ng2CarouselamosModule
   ],
   providers: [LedsproviderService],
   bootstrap: [AppComponent]

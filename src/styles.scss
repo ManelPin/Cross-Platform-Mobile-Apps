@@ -57,3 +57,12 @@ body {
 .flex-container {
   display: flex;
 }
+button:link,
+button:visited {
+  border: none;
+  color: rgb(255, 0, 100);
+  text-decoration: none;
+}
+button.active {
+  border-bottom: 2px solid rgb(250, 244, 246);
+}

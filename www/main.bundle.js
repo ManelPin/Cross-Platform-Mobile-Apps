@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\n<span class=\"done-b\">\n    <mat-toolbar color=\"warn\" layout-align=\"space-between center\" >\n       <button mat-icon-button routerLink=\"first\">\n          <mat-icon>camera</mat-icon>\n       </button>\n       <span class=\"example-fill-remaining-space\"></span>\n       <button mat-icon-button routerLink=\"second\">\n          <mat-icon>color_lens</mat-icon>\n       </button>\n       <span class=\"example-fill-remaining-space\"></span>\n       <button mat-icon-button>\n          <mat-icon>insert_photo</mat-icon>\n       </button>\n       <span class=\"example-fill-remaining-space\"></span>\n       <button mat-icon-button routerLink=\"third\">\n          <mat-icon>bluetooth</mat-icon>   \n       </button>\n       \n    </mat-toolbar>\n </span>"
+module.exports = "<router-outlet></router-outlet>\r\n<span class=\"done-b\">\r\n    <mat-toolbar color=\"warn\" layout-align=\"space-between center\" >\r\n       <button mat-icon-button routerLink=\"first\">\r\n          <mat-icon>camera</mat-icon>\r\n       </button>\r\n       <span class=\"example-fill-remaining-space\"></span>\r\n       <button mat-icon-button routerLink=\"second\">\r\n          <mat-icon>color_lens</mat-icon>\r\n       </button>\r\n       <span class=\"example-fill-remaining-space\"></span>\r\n       <button mat-icon-button routerLink=\"forth\">\r\n          <mat-icon>insert_photo</mat-icon>\r\n       </button>\r\n       <span class=\"example-fill-remaining-space\"></span>\r\n       <button mat-icon-button routerLink=\"third\">\r\n          <mat-icon>bluetooth</mat-icon>   \r\n       </button>\r\n       \r\n    </mat-toolbar>\r\n </span>"
 
 /***/ }),
 
@@ -89,18 +89,22 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/esm5/animations.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__("../../../../../src/app/app.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__app_router__ = __webpack_require__("../../../../../src/app/app.router.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__page_home_home_component__ = __webpack_require__("../../../../../src/app/page/home/home.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__page_wheel_wheel_component__ = __webpack_require__("../../../../../src/app/page/wheel/wheel.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__page_devices_devices_component__ = __webpack_require__("../../../../../src/app/page/devices/devices.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ledsprovider_service__ = __webpack_require__("../../../../../src/app/ledsprovider.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ng2_carouselamos__ = __webpack_require__("../../../../ng2-carouselamos/dist/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__app_router__ = __webpack_require__("../../../../../src/app/app.router.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__page_home_home_component__ = __webpack_require__("../../../../../src/app/page/home/home.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__page_wheel_wheel_component__ = __webpack_require__("../../../../../src/app/page/wheel/wheel.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__page_devices_devices_component__ = __webpack_require__("../../../../../src/app/page/devices/devices.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ledsprovider_service__ = __webpack_require__("../../../../../src/app/ledsprovider.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__page_photos_photos_component__ = __webpack_require__("../../../../../src/app/page/photos/photos.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
 
 
 
@@ -118,47 +122,49 @@ var AppModule = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["K" /* NgModule */])({
             declarations: [
                 __WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */],
-                __WEBPACK_IMPORTED_MODULE_6__page_home_home_component__["a" /* HomeComponent */],
-                __WEBPACK_IMPORTED_MODULE_7__page_wheel_wheel_component__["a" /* WheelComponent */],
-                __WEBPACK_IMPORTED_MODULE_8__page_devices_devices_component__["a" /* DevicesComponent */]
+                __WEBPACK_IMPORTED_MODULE_7__page_home_home_component__["a" /* HomeComponent */],
+                __WEBPACK_IMPORTED_MODULE_8__page_wheel_wheel_component__["a" /* WheelComponent */],
+                __WEBPACK_IMPORTED_MODULE_9__page_devices_devices_component__["a" /* DevicesComponent */],
+                __WEBPACK_IMPORTED_MODULE_11__page_photos_photos_component__["a" /* PhotosComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["a" /* MatAutocompleteModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["b" /* MatButtonModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["c" /* MatButtonToggleModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["d" /* MatCardModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["e" /* MatCheckboxModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["f" /* MatChipsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["g" /* MatDatepickerModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["h" /* MatDialogModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["i" /* MatExpansionModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["j" /* MatGridListModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["k" /* MatIconModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["l" /* MatInputModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["m" /* MatListModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["n" /* MatMenuModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["o" /* MatNativeDateModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["p" /* MatPaginatorModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["q" /* MatProgressBarModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["r" /* MatProgressSpinnerModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["s" /* MatRadioModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["t" /* MatRippleModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["u" /* MatSelectModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["v" /* MatSidenavModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["x" /* MatSliderModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["w" /* MatSlideToggleModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["y" /* MatSnackBarModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["z" /* MatSortModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["B" /* MatTableModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["C" /* MatTabsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["D" /* MatToolbarModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["E" /* MatTooltipModule */],
-                __WEBPACK_IMPORTED_MODULE_5__angular_material__["A" /* MatStepperModule */],
-                __WEBPACK_IMPORTED_MODULE_4__app_router__["a" /* AppRoutingModule */]
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["a" /* MatAutocompleteModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["b" /* MatButtonModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["c" /* MatButtonToggleModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["d" /* MatCardModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["e" /* MatCheckboxModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["f" /* MatChipsModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["g" /* MatDatepickerModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["h" /* MatDialogModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["i" /* MatExpansionModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["j" /* MatGridListModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["k" /* MatIconModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["l" /* MatInputModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["m" /* MatListModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["n" /* MatMenuModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["o" /* MatNativeDateModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["p" /* MatPaginatorModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["q" /* MatProgressBarModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["r" /* MatProgressSpinnerModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["s" /* MatRadioModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["t" /* MatRippleModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["u" /* MatSelectModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["v" /* MatSidenavModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["x" /* MatSliderModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["w" /* MatSlideToggleModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["y" /* MatSnackBarModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["z" /* MatSortModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["B" /* MatTableModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["C" /* MatTabsModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["D" /* MatToolbarModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["E" /* MatTooltipModule */],
+                __WEBPACK_IMPORTED_MODULE_6__angular_material__["A" /* MatStepperModule */],
+                __WEBPACK_IMPORTED_MODULE_5__app_router__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_4_ng2_carouselamos__["a" /* Ng2CarouselamosModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_9__ledsprovider_service__["a" /* LedsproviderService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_10__ledsprovider_service__["a" /* LedsproviderService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_3__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -180,6 +186,7 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__page_home_home_component__ = __webpack_require__("../../../../../src/app/page/home/home.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__page_wheel_wheel_component__ = __webpack_require__("../../../../../src/app/page/wheel/wheel.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__page_devices_devices_component__ = __webpack_require__("../../../../../src/app/page/devices/devices.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__page_photos_photos_component__ = __webpack_require__("../../../../../src/app/page/photos/photos.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -191,11 +198,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var routes = [
     { path: "", pathMatch: "full", redirectTo: "first" },
     { path: "first", component: __WEBPACK_IMPORTED_MODULE_2__page_home_home_component__["a" /* HomeComponent */] },
     { path: "second", component: __WEBPACK_IMPORTED_MODULE_3__page_wheel_wheel_component__["a" /* WheelComponent */] },
-    { path: "third", component: __WEBPACK_IMPORTED_MODULE_4__page_devices_devices_component__["a" /* DevicesComponent */] }
+    { path: "third", component: __WEBPACK_IMPORTED_MODULE_4__page_devices_devices_component__["a" /* DevicesComponent */] },
+    { path: "forth", component: __WEBPACK_IMPORTED_MODULE_5__page_photos_photos_component__["a" /* PhotosComponent */] }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {
@@ -362,7 +371,7 @@ var LedsproviderService = /** @class */ (function () {
 /***/ "../../../../../src/app/page/devices/devices.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n     \n      \n     \n      <mat-list>\n          <mat-list-item *ngFor=\"let mark of led.dispositivos, let i = index\">\n              <mat-icon matListIconc color=\"warn\">bluetooth</mat-icon>\n            <h3 matLine> {{mark.name}}{{mark.id}} </h3>\n            <p matLine>\n                <button *ngIf=\"!mark.show\" mat-button color=\"warn\" (click)=\"start(i,mark.id)\" >Connect to Device</button>\n                <button *ngIf=\"mark.show\"  mat-button color=\"warn\"  (click)=\"disconnect(i,mark.id)\" >Disconnect Device</button>\n            </p>\n          </mat-list-item>\n        </mat-list>\n"
+module.exports = "\r\n     \r\n      \r\n     \r\n      <mat-list>\r\n          <mat-list-item *ngFor=\"let mark of led.dispositivos, let i = index\">\r\n              <mat-icon matListIconc color=\"warn\">bluetooth</mat-icon>\r\n            <h3 matLine> {{mark.name}}{{mark.id}} </h3>\r\n            <p matLine>\r\n                <button *ngIf=\"!mark.show\" mat-button color=\"warn\" (click)=\"start(i,mark.id)\" >Connect to Device</button>\r\n                <button *ngIf=\"mark.show\"  mat-button color=\"warn\"  (click)=\"disconnect(i,mark.id)\" >Disconnect Device</button>\r\n            </p>\r\n          </mat-list-item>\r\n        </mat-list>\r\n"
 
 /***/ }),
 
@@ -489,7 +498,7 @@ var DevicesComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/page/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"Aligner\">\n      <span class=\"done-t\">\n          <div class=\"controls\">\n             <table style=\"width:100%\">\n                <tr style=\"background-color: rgb(255,0,0)\">\n                   <th>R:</th>\n                   <td style=\"width:26px;\">{{red}}</td>\n                </tr>\n                <tr style=\"background-color: rgb(0,255,0)\">\n                   <th>G:</th>\n                   <td style=\"width:26px;\">{{green}}</td>\n                </tr>\n                <tr style=\"background-color: rgb(0,0,255)\">\n                   <th>B:</th>\n                   <td style=\"width:26px;\">{{blue}}</td>\n                </tr>\n             </table>\n          </div>\n       </span>\n       <span [ngStyle]=\"setPreview()\"></span>\n       <span [ngStyle]=\"setStyles()\"></span>\n       <span class=\"done-t-r\">\n          <button mat-icon-button (click)=\"torch()\">\n              <mat-icon>flash_on</mat-icon>   \n           </button>\n      </span>\n            <canvas #fullsize></canvas>\n  \n\n  \n\n  <span class=\"done Aligner-item\">\n     <button mat-fab color=\"warn\"  (click)=\"play()\" aria-label=\"play video\">\n     <mat-icon *ngIf=\"onPlay\" >play_arrow</mat-icon>\n     <mat-icon *ngIf=\"onStop\">stop</mat-icon>\n     </button>\n  </span>\n</div>"
+module.exports = "<div class=\"Aligner\">\r\n      <span class=\"done-t\">\r\n          <div class=\"controls\">\r\n             <table style=\"width:100%\">\r\n                <tr style=\"background-color: rgb(255,0,0)\">\r\n                   <th>R:</th>\r\n                   <td style=\"width:26px;\">{{red}}</td>\r\n                </tr>\r\n                <tr style=\"background-color: rgb(0,255,0)\">\r\n                   <th>G:</th>\r\n                   <td style=\"width:26px;\">{{green}}</td>\r\n                </tr>\r\n                <tr style=\"background-color: rgb(0,0,255)\">\r\n                   <th>B:</th>\r\n                   <td style=\"width:26px;\">{{blue}}</td>\r\n                </tr>\r\n             </table>\r\n          </div>\r\n       </span>\r\n       <span [ngStyle]=\"setPreview()\"></span>\r\n       <span [ngStyle]=\"setStyles()\"></span>\r\n       <span class=\"done-t-r\">\r\n          <button mat-icon-button (click)=\"torch()\">\r\n              <mat-icon>flash_on</mat-icon>   \r\n           </button>\r\n      </span>\r\n            <canvas #fullsize></canvas>\r\n  \r\n\r\n  \r\n\r\n  <span class=\"done Aligner-item\">\r\n     <button mat-fab color=\"warn\"  (click)=\"play()\" aria-label=\"play video\">\r\n     <mat-icon *ngIf=\"onPlay\" >play_arrow</mat-icon>\r\n     <mat-icon *ngIf=\"onStop\">stop</mat-icon>\r\n     </button>\r\n  </span>\r\n</div>"
 
 /***/ }),
 
@@ -733,10 +742,95 @@ var HomeComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/page/photos/photos.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n  <div\n    ng2-carouselamos #slider\n    class=\"slides-wrapper\"\n    [items]=\"items\"\n    [width]=\"900\"\n    [$prev]=\"prev\"\n    [$next]=\"next\"\n    [$item]=\"item\"\n  >\n  </div>\n\n\n<ng-template #prev>\n  <button mat-fab color=\"warn\" id=\"left\">\n    <mat-icon>keyboard_arrow_left</mat-icon>\n  </button>\n</ng-template>\n<ng-template #next>\n  <button mat-fab color=\"warn\" id=\"right\">\n    <mat-icon>keyboard_arrow_right</mat-icon>\n  </button>\n</ng-template>\n<ng-template #item let-item let-i=\"index\">\n\n    <div class=\"items\">\n      <img src=\"{{ item.name }}\" width=\"{{width}}\" [style.height.vh]=\"'100'\">\n    </div>\n\n</ng-template>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/page/photos/photos.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "#container {\n  width: 100%;\n  margin: 5em auto;\n  padding: 0;\n  background: #fff; }\n\n.items {\n  max-width: 100%;\n  height: auto;\n  background: #ECECEC; }\n\n#left, #right {\n  margin: 30px; }\n", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/page/photos/photos.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PhotosComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var PhotosComponent = /** @class */ (function () {
+    function PhotosComponent() {
+        this.items = [];
+        this.width = window.innerWidth;
+        this.height = window.innerHeight;
+        this.items = [
+            { name: 'assets/images/thumb1.png' },
+            { name: 'assets/images/thumb2.png' },
+            { name: 'assets/images/thumb3.png' },
+            { name: 'assets/images/thumb4.png' },
+            { name: 'assets/images/thumb5.png' },
+            { name: 'assets/images/thumb6.png' },
+            { name: 'assets/images/thumb1.png' },
+            { name: 'assets/images/thumb2.png' },
+            { name: 'assets/images/thumb3.png' },
+            { name: 'assets/images/thumb4.png' },
+            { name: 'assets/images/thumb5.png' },
+            { name: 'assets/images/thumb6.png' },
+        ];
+    }
+    PhotosComponent.prototype.ngAfterViewInit = function () {
+        this.slider.nativeElement.addEventListener('touchstart', function (e) { e.preventDefault(); }, false);
+        this.slider.nativeElement.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+        this.slider.nativeElement.addEventListener('multitap', function (e) { e.preventDefault(); }, false);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* ViewChild */])('slider'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */])
+    ], PhotosComponent.prototype, "slider", void 0);
+    PhotosComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-photos',
+            template: __webpack_require__("../../../../../src/app/page/photos/photos.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/page/photos/photos.component.scss")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], PhotosComponent);
+    return PhotosComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/page/wheel/wheel.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<mat-grid-list cols=\"1\" rowHeight=\"{{height}}\">\n  <mat-grid-tile  [style.height.%]=\"'100'\">\n      <span class=\"done-t\">\n          <div class=\"controls\">\n             <table style=\"width:100%\">\n                <tr style=\"background-color: rgb(255,0,0)\">\n                   <th>R:</th>\n                   <td style=\"width:26px;\">{{rx}}</td>\n                </tr>\n                <tr style=\"background-color: rgb(0,255,0)\">\n                   <th>G:</th>\n                   <td style=\"width:26px;\">{{gx}}</td>\n                </tr>\n                <tr style=\"background-color: rgb(0,0,255)\">\n                   <th>B:</th>\n                   <td style=\"width:26px;\">{{bx}}</td>\n                </tr>\n             </table>\n          </div>\n       </span>\n       <span [ngStyle]=\"setPreview()\"></span>\n       <span class=\"done-t-r\" [style.top]=\"'12px'\" (click)=\"powerOff()\">\n         <button mat-fab color=\"warn\"  >\n           <mat-icon>power_settings_new</mat-icon>\n         </button>\n       </span>\n    <canvas #canvasT [width]=\"width*0.8\" [height]=\"height\" (pan)=\"mousemove($event)\" [style.position]=\"'absolute'\" [ngStyle]=\"{'top':'-50px'}\"></canvas>\n  \n    <span class=\"done-b\" [style.bottom]=\"'120px'\">\n        <label for=\"vol-slider\">\n            <mat-icon aria-hidden color=\"warn\">flash_on</mat-icon>\n            <span class=\"cdk-visually-hidden\">Flash</span>\n          </label>\n          <mat-slider aria-label=\"Volume\" id=\"vol-slider\" min=\"0\" max=\"50\" [style.width]=\"width*0.8 + 'px'\" thumbLabel color=\"warn\" value=\"0\" (input)='changeMatsliderFreq($event)'></mat-slider>\n          <label for=\"vol-slider\">\n              <mat-icon aria-hidden color=\"warn\">flash_on</mat-icon>\n              <span class=\"cdk-visually-hidden\">Flash</span>\n            </label>\n    </span>\n    <span class=\"done-b\" [style.bottom]=\"'70px'\">\n      <label for=\"vol-slider\">\n          <mat-icon aria-hidden color=\"warn\">lightbulb_outline</mat-icon>\n          <span class=\"cdk-visually-hidden\">Light</span>\n        </label>\n        <mat-slider aria-label=\"Volume\" id=\"vol-slider\" min=\"0\" max=\"100\" [style.width]=\"width*0.8 + 'px'\" thumbLabel color=\"warn\" value=\"100\" (input)='changeMatsliderLight($event)'></mat-slider>\n        <label for=\"vol-slider\">\n            <mat-icon aria-hidden color=\"warn\">lightbulb_outline</mat-icon>\n            <span class=\"cdk-visually-hidden\">Light</span>\n          </label>\n  </span>\n  \n  </mat-grid-tile>\n\n</mat-grid-list>\n\n"
+module.exports = "<mat-grid-list cols=\"1\" rowHeight=\"{{height}}\">\r\n  <mat-grid-tile  [style.height.%]=\"'100'\">\r\n      <span class=\"done-t\">\r\n          <div class=\"controls\">\r\n             <table style=\"width:100%\">\r\n                <tr style=\"background-color: rgb(255,0,0)\">\r\n                   <th>R:</th>\r\n                   <td style=\"width:26px;\">{{rx}}</td>\r\n                </tr>\r\n                <tr style=\"background-color: rgb(0,255,0)\">\r\n                   <th>G:</th>\r\n                   <td style=\"width:26px;\">{{gx}}</td>\r\n                </tr>\r\n                <tr style=\"background-color: rgb(0,0,255)\">\r\n                   <th>B:</th>\r\n                   <td style=\"width:26px;\">{{bx}}</td>\r\n                </tr>\r\n             </table>\r\n          </div>\r\n       </span>\r\n       <span [ngStyle]=\"setPreview()\"></span>\r\n       <span class=\"done-t-r\" [style.top]=\"'12px'\" (click)=\"powerOff()\">\r\n         <button mat-fab color=\"warn\"  >\r\n           <mat-icon>power_settings_new</mat-icon>\r\n         </button>\r\n       </span>\r\n    <canvas #canvasT [width]=\"width*0.8\" [height]=\"height\" (pan)=\"mousemove($event)\" [style.position]=\"'absolute'\" [ngStyle]=\"{'top':'-50px'}\"></canvas>\r\n  \r\n    <span class=\"done-b\" [style.bottom]=\"'120px'\">\r\n        <label for=\"vol-slider\">\r\n            <mat-icon aria-hidden color=\"warn\">flash_on</mat-icon>\r\n            <span class=\"cdk-visually-hidden\">Flash</span>\r\n          </label>\r\n          <mat-slider aria-label=\"Volume\" id=\"vol-slider\" min=\"0\" max=\"50\" [style.width]=\"width*0.8 + 'px'\" thumbLabel color=\"warn\" value=\"0\" (input)='changeMatsliderFreq($event)'></mat-slider>\r\n          <label for=\"vol-slider\">\r\n              <mat-icon aria-hidden color=\"warn\">flash_on</mat-icon>\r\n              <span class=\"cdk-visually-hidden\">Flash</span>\r\n            </label>\r\n    </span>\r\n    <span class=\"done-b\" [style.bottom]=\"'70px'\">\r\n      <label for=\"vol-slider\">\r\n          <mat-icon aria-hidden color=\"warn\">lightbulb_outline</mat-icon>\r\n          <span class=\"cdk-visually-hidden\">Light</span>\r\n        </label>\r\n        <mat-slider aria-label=\"Volume\" id=\"vol-slider\" min=\"0\" max=\"100\" [style.width]=\"width*0.8 + 'px'\" thumbLabel color=\"warn\" value=\"100\" (input)='changeMatsliderLight($event)'></mat-slider>\r\n        <label for=\"vol-slider\">\r\n            <mat-icon aria-hidden color=\"warn\">lightbulb_outline</mat-icon>\r\n            <span class=\"cdk-visually-hidden\">Light</span>\r\n          </label>\r\n  </span>\r\n  \r\n  </mat-grid-tile>\r\n\r\n</mat-grid-list>\r\n\r\n"
 
 /***/ }),
 

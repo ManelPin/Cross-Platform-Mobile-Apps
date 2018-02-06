@@ -1,0 +1,30 @@
+
+  <div
+    ng2-carouselamos
+    class="slides-wrapper"
+    [items]="items"
+    [width]="900"
+    [$prev]="prev"
+    [$next]="next"
+    [$item]="item"
+  >
+  </div>
+
+
+<ng-template #prev>
+  <button mat-fab color="warn" id="left">
+    <mat-icon>keyboard_arrow_left</mat-icon>
+  </button>
+</ng-template>
+<ng-template #next>
+  <button mat-fab color="warn" id="right">
+    <mat-icon>keyboard_arrow_right</mat-icon>
+  </button>
+</ng-template>
+<ng-template #item let-item let-i="index">
+
+    <div class="items">
+      <img src="{{ item.name }}" width="{{width}}" [style.height.vh]="'100'">
+    </div>
+
+</ng-template>
