@@ -745,7 +745,7 @@ var HomeComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/page/photos/photos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n  <div\n    ng2-carouselamos #slider\n    class=\"slides-wrapper\"\n    [items]=\"items\"\n    [width]=\"900\"\n    [$prev]=\"prev\"\n    [$next]=\"next\"\n    [$item]=\"item\"\n  >\n  </div>\n\n\n<ng-template #prev>\n  <button mat-fab color=\"warn\" id=\"left\">\n    <mat-icon>keyboard_arrow_left</mat-icon>\n  </button>\n</ng-template>\n<ng-template #next>\n  <button mat-fab color=\"warn\" id=\"right\">\n    <mat-icon>keyboard_arrow_right</mat-icon>\n  </button>\n</ng-template>\n<ng-template #item let-item let-i=\"index\">\n\n    <div class=\"items\">\n      <img src=\"{{ item.name }}\" width=\"{{width}}\" [style.height.vh]=\"'100'\">\n    </div>\n\n</ng-template>"
+module.exports = "\n\n\n <div class=\"container\">\n        <ng-template ngFor let-i=\"index\"  let-item [ngForOf]=\"items\">\n                <canvas class=\"canvas{{i}}\" width=\"{{width}}\" height=\"{{height*0.5}}\" (click)=\"mousemove($event, i)\"></canvas>\n            </ng-template>\n        \n </div>\n     \n"
 
 /***/ }),
 
@@ -757,7 +757,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#container {\n  width: 100%;\n  margin: 5em auto;\n  padding: 0;\n  background: #fff; }\n\n.items {\n  max-width: 100%;\n  height: auto;\n  background: #ECECEC; }\n\n#left, #right {\n  margin: 30px; }\n", ""]);
+exports.push([module.i, ".swiper-container {\n  width: 100vw;\n  height: 100vh; }\n\n.swiper-slide canvas {\n  width: 350;\n  height: 400;\n  max-width: 100%;\n  max-height: 100%;\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n  position: absolute;\n  left: 50%;\n  top: 50%; }\n", ""]);
 
 // exports
 
@@ -784,7 +784,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 var PhotosComponent = /** @class */ (function () {
-    function PhotosComponent() {
+    function PhotosComponent(renderer, elementRef) {
+        this.renderer = renderer;
+        this.elementRef = elementRef;
         this.items = [];
         this.width = window.innerWidth;
         this.height = window.innerHeight;
@@ -793,20 +795,71 @@ var PhotosComponent = /** @class */ (function () {
             { name: 'assets/images/thumb2.png' },
             { name: 'assets/images/thumb3.png' },
             { name: 'assets/images/thumb4.png' },
-            { name: 'assets/images/thumb5.png' },
-            { name: 'assets/images/thumb6.png' },
             { name: 'assets/images/thumb1.png' },
             { name: 'assets/images/thumb2.png' },
             { name: 'assets/images/thumb3.png' },
             { name: 'assets/images/thumb4.png' },
-            { name: 'assets/images/thumb5.png' },
-            { name: 'assets/images/thumb6.png' },
         ];
     }
     PhotosComponent.prototype.ngAfterViewInit = function () {
-        this.slider.nativeElement.addEventListener('touchstart', function (e) { e.preventDefault(); }, false);
-        this.slider.nativeElement.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-        this.slider.nativeElement.addEventListener('multitap', function (e) { e.preventDefault(); }, false);
+        var _this = this;
+        var _loop_1 = function (i) {
+            this_1[i + 'canvas'] = this_1.elementRef.nativeElement.querySelector('.canvas' + i);
+            this_1[i + 'canvasContext'] = this_1[i + 'canvas'].getContext("2d");
+            loadImages(this_1.items[i], function (image) {
+                image.width = _this[i + 'canvas'].width;
+                image.height = _this[i + 'canvas'].height;
+                _this[i + 'canvasContext'].drawImage(image.name, 0, 0);
+            });
+        };
+        var this_1 = this;
+        for (var i in this.items) {
+            _loop_1(i);
+        }
+        function loadImages(sources, callback) {
+            var images = {};
+            var loadedImages = 0;
+            var numImages = 0;
+            // get num of sources
+            for (var src in sources) {
+                numImages++;
+            }
+            for (var src in sources) {
+                images[src] = new Image();
+                images[src].onload = function () {
+                    if (++loadedImages >= numImages) {
+                        callback(images);
+                    }
+                };
+                images[src].src = sources[src];
+            }
+        }
+    };
+    PhotosComponent.prototype.mousemove = function (event, index) {
+        var canvas = this.elementRef.nativeElement.querySelector('.canvas' + index);
+        var BB = canvas.getBoundingClientRect();
+        var canvasX = event.clientX - BB.left;
+        var canvasY = event.clientY - BB.top;
+        // get current pixel
+        var imageData = canvas.getContext('2d').getImageData(canvasX, canvasY, 1, 1);
+        var pixel = imageData.data;
+        // update preview color
+        var pixelColor = "rgb(" + pixel[0] + ", " + pixel[1] + ", " + pixel[2] + ")";
+        console.log(pixelColor);
+        var red = pixel[0];
+        var green = pixel[1];
+        var blue = pixel[2];
+    };
+    PhotosComponent.prototype.findPos = function (obj) {
+        var curleft = 0;
+        var curtop = 0;
+        if (obj.offsetParent) {
+            do {
+                curleft += obj.offsetLeft;
+                curtop += obj.offsetTop;
+            } while (obj = obj.offsetParent);
+            return [curleft, curtop];
+        }
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_11" /* ViewChild */])('slider'),
@@ -818,7 +871,7 @@ var PhotosComponent = /** @class */ (function () {
             template: __webpack_require__("../../../../../src/app/page/photos/photos.component.html"),
             styles: [__webpack_require__("../../../../../src/app/page/photos/photos.component.scss")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["X" /* Renderer */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ElementRef */]])
     ], PhotosComponent);
     return PhotosComponent;
 }());

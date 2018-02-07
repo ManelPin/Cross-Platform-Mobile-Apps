@@ -1,16 +1,18 @@
-#container {
-    width: 100%;
-    margin: 5em auto;
-    padding: 0;
-    background:#fff;
+.swiper-container {
+    width: 100vw;
+    height: 100vh;
 }
 
-.items {
-    max-width:100%;
-    height:auto;
-    background:#ECECEC;
-}
-
-#left, #right { 
-    margin: 30px;
-}
+.swiper-slide canvas {
+    width: 350;
+    height: 400;
+    max-width: 100%;
+    max-height: 100%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+  }
