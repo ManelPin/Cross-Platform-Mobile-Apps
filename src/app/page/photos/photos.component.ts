@@ -7,6 +7,9 @@ import { Component, OnInit, AfterViewInit, ViewChild, ElementRef, Renderer } fro
   styleUrls: ['./photos.component.scss']
 })
 export class PhotosComponent implements AfterViewInit {
+  blue: any;
+  green: any;
+  red: any;
 
   items: Array<any> = []
   width = window.innerWidth;
@@ -66,7 +69,22 @@ export class PhotosComponent implements AfterViewInit {
   
   }
 
-
+  public setPreview() {
+    let styles = {
+      'height':'45px',
+      'width':'45px',    
+      'top': '0px',
+      'z-index': '99999',
+      'position': 'fixed',
+      'border-radius': '32%',          
+      'margin': 'auto',
+      'left': '50%',
+      'transform': 'translate(-50%, 0)',
+      'border':'1px solid #8c8c8c',
+      'background-color': 'rgba('+ this.red +',' + this.green + ',' + this.blue + ', 1)'
+    }
+    return styles;
+  }
       
   mousemove(event, index){
     
@@ -92,9 +110,9 @@ export class PhotosComponent implements AfterViewInit {
         
     
     
-          var red =pixel[0];
-          var green =pixel[1];
-          var blue =pixel[2];
+          this.red =pixel[0];
+          this.green =pixel[1];
+          this.blue =pixel[2];
     
     
     

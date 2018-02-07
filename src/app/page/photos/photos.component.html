@@ -2,6 +2,7 @@
 
 
  <div class="container">
+        <span [ngStyle]="setPreview()" class="Aligner-item"></span>
         <ng-template ngFor let-i="index"  let-item [ngForOf]="items">
                 <canvas class="canvas{{i}}" width="{{width}}" height="{{height*0.5}}" (click)="mousemove($event, i)"></canvas>
             </ng-template>

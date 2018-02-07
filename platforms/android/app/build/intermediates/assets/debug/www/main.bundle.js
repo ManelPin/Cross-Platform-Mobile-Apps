@@ -38,7 +38,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<router-outlet></router-outlet>\r\n<span class=\"done-b\">\r\n    <mat-toolbar color=\"warn\" layout-align=\"space-between center\" >\r\n       <button mat-icon-button routerLink=\"first\">\r\n          <mat-icon>camera</mat-icon>\r\n       </button>\r\n       <span class=\"example-fill-remaining-space\"></span>\r\n       <button mat-icon-button routerLink=\"second\">\r\n          <mat-icon>color_lens</mat-icon>\r\n       </button>\r\n       <span class=\"example-fill-remaining-space\"></span>\r\n       <button mat-icon-button routerLink=\"forth\">\r\n          <mat-icon>insert_photo</mat-icon>\r\n       </button>\r\n       <span class=\"example-fill-remaining-space\"></span>\r\n       <button mat-icon-button routerLink=\"third\">\r\n          <mat-icon>bluetooth</mat-icon>   \r\n       </button>\r\n       \r\n    </mat-toolbar>\r\n </span>"
+module.exports = "<router-outlet></router-outlet>\r\n<span class=\"done-b\">\r\n    <mat-toolbar color=\"warn\" layout-align=\"space-between center\" role=\"header\" >\r\n       <button mat-icon-button routerLink=\"first\" routerLinkActive=\"active\">\r\n          <mat-icon>camera</mat-icon>\r\n       </button>\r\n       <span class=\"example-fill-remaining-space\"></span>\r\n       <button mat-icon-button routerLink=\"second\" routerLinkActive=\"active\">\r\n          <mat-icon>color_lens</mat-icon>\r\n       </button>\r\n       <span class=\"example-fill-remaining-space\"></span>\r\n       <button mat-icon-button routerLink=\"forth\" routerLinkActive=\"active\">\r\n          <mat-icon>insert_photo</mat-icon>\r\n       </button>\r\n       <span class=\"example-fill-remaining-space\"></span>\r\n       <button mat-icon-button routerLink=\"third\" routerLinkActive=\"active\">\r\n          <mat-icon>bluetooth</mat-icon>   \r\n       </button>\r\n       \r\n    </mat-toolbar>\r\n </span>"
 
 /***/ }),
 
@@ -745,7 +745,7 @@ var HomeComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/page/photos/photos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n\n <div class=\"container\">\n        <ng-template ngFor let-i=\"index\"  let-item [ngForOf]=\"items\">\n                <canvas class=\"canvas{{i}}\" width=\"{{width}}\" height=\"{{height*0.5}}\" (click)=\"mousemove($event, i)\"></canvas>\n            </ng-template>\n        \n </div>\n     \n"
+module.exports = "\n\n\n <div class=\"container\">\n        <span [ngStyle]=\"setPreview()\" class=\"Aligner-item\"></span>\n        <ng-template ngFor let-i=\"index\"  let-item [ngForOf]=\"items\">\n                <canvas class=\"canvas{{i}}\" width=\"{{width}}\" height=\"{{height*0.5}}\" (click)=\"mousemove($event, i)\"></canvas>\n            </ng-template>\n        \n </div>\n     \n"
 
 /***/ }),
 
@@ -757,7 +757,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".swiper-container {\n  width: 100vw;\n  height: 100vh; }\n\n.swiper-slide canvas {\n  width: 350;\n  height: 400;\n  max-width: 100%;\n  max-height: 100%;\n  -webkit-transform: translate(-50%, -50%);\n  transform: translate(-50%, -50%);\n  position: absolute;\n  left: 50%;\n  top: 50%; }\n", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -835,6 +835,22 @@ var PhotosComponent = /** @class */ (function () {
             }
         }
     };
+    PhotosComponent.prototype.setPreview = function () {
+        var styles = {
+            'height': '45px',
+            'width': '45px',
+            'top': '0px',
+            'z-index': '99999',
+            'position': 'fixed',
+            'border-radius': '32%',
+            'margin': 'auto',
+            'left': '50%',
+            'transform': 'translate(-50%, 0)',
+            'border': '1px solid #8c8c8c',
+            'background-color': 'rgba(' + this.red + ',' + this.green + ',' + this.blue + ', 1)'
+        };
+        return styles;
+    };
     PhotosComponent.prototype.mousemove = function (event, index) {
         var canvas = this.elementRef.nativeElement.querySelector('.canvas' + index);
         var BB = canvas.getBoundingClientRect();
@@ -846,9 +862,9 @@ var PhotosComponent = /** @class */ (function () {
         // update preview color
         var pixelColor = "rgb(" + pixel[0] + ", " + pixel[1] + ", " + pixel[2] + ")";
         console.log(pixelColor);
-        var red = pixel[0];
-        var green = pixel[1];
-        var blue = pixel[2];
+        this.red = pixel[0];
+        this.green = pixel[1];
+        this.blue = pixel[2];
     };
     PhotosComponent.prototype.findPos = function (obj) {
         var curleft = 0;

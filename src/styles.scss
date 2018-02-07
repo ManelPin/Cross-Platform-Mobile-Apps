@@ -73,3 +73,28 @@ button:visited {
 button.active {
   border-bottom: 2px solid rgb(250, 244, 246);
 }
+.Aligner {
+  display: flex;
+  align-items: center;
+  min-height: 24em;
+  justify-content: center;
+}
+
+.Aligner-item {
+  flex: 1;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.Aligner-item--top {
+  align-self: flex-start;
+}
+
+.Aligner-item--bottom {
+  align-self: flex-end;
+}
+
+.Aligner-item--fixed {
+  flex: none;
+  max-width: 50%;
+}
